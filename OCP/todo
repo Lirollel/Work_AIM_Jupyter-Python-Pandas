@@ -1,5 +1,4 @@
 'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
-'Alt+Enter' // Triggers `Todo: Toggle Box`
 'Alt+D' // Triggers `Todo: Toggle Done`
 'Alt+C' // Triggers `Todo: Toggle Cancelled`
 'Alt+S' // Triggers `Todo: Toggle Start`
@@ -7,16 +6,11 @@
 @today @critical @high @low
 
 
+
 OCP:
-    ☐ Проверить Cpty и Entity везде
+    ☐ Проверить Cpty и Entity везде @low
     Quantum:
-        ☐ Cделать один скрипт для обоих холдингов @low
-        ✔ Брать максимальную дату effectiveFrom @done(24-03-21 16:26)
-    Debt:
-        ✔ Поменять местами Cpty и Entity (в rename) @done(24-03-21 16:26)
-        ☐ Валюта
-            ✔ Прогнать SUEK @done(24-03-21 16:27)
-            ✔ EURO @done(24-03-21 15:28)
+        ☐ Cделать один скрипт для обоих холдингов 
     Invest:
         ☐ Валюта на трехбукв англ 
     ARAP:
@@ -25,21 +19,26 @@ OCP:
         ☐ Определять внутригрупповую задолженность @low
         В идеале сумма требований и объема компании А к В должна совпадать с В к А
         Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
-        ✔ если заполнен comcode, используем его. Если поле пустое - смотрим на orgname @done(24-03-21 09:02)
 
 Tasks:
-    Coding:
-        ☐ Git 
-        ✔ Oracle to python @Waiting @Check_on_Th @done(24-03-20 14:32)
-        ✔ Функция подключения к БД @done(24-03-21 16:17)
-        ☐ Валюты
-            ☐ CCY_from \ to
-            ☐ Дата выгрузки Today
-        ☐ Mapping to csv
     Doings:
-        ☐ Дни без содержания @Waiting @Check_on_Th
+        ☐ Дни без содержания @Waiting @Check_on_Mon
 
 Archive:
+  ✔ Валюта @done(24-03-22 12:42) @project(OCP.Debt)
+  ✔ Валюты @done(24-03-22 12:33) @project(Tasks.Coding)
+  ✔ CCY_from \ to @done(24-03-22 10:09) @project(Tasks.Coding)
+  ✔ Дата выгрузки Today @done(24-03-22 12:17) @project(Tasks.Coding)
+  ✔ str as 29/02/24 @done(24-03-22 12:33) @project(Tasks.Coding)
+  ✔ Mapping to csv @done(24-03-22 10:01) @project(Tasks.Coding)
+  ✔ Брать максимальную дату effectiveFrom @done(24-03-21 16:26) @project(OCP.Quantum)
+  ✔ Поменять местами Cpty и Entity (в rename) @done(24-03-21 16:26) @project(OCP.Debt)
+  ✔ Прогнать SUEK @done(24-03-21 16:27) @project(OCP.Debt)
+  ✔ EURO @done(24-03-21 15:28) @project(OCP.Debt)
+  ✔ если заполнен comcode, используем его. Если поле пустое - смотрим на orgname @done(24-03-21 09:02) @project(OCP.ARAP)
+  ✔ Git @done(24-03-22 09:40) @project(Tasks.Coding)
+  ✔ Oracle to python @Waiting @Check_on_Th @done(24-03-20 14:32) @project(Tasks.Coding)
+  ✔ Функция подключения к БД @done(24-03-21 16:17) @project(Tasks.Coding)
   ✔ Код на код, чтобы дважды не проходить по столбцу @done(24-03-20 12:38) @project(OCP.Mapping)
   ✘ global Today @cancelled(24-03-20 12:09) @project(Tasks.Coding)
   ✔ Excel writer @done(24-03-20 11:37) @project(Код)
