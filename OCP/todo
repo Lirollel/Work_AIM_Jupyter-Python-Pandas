@@ -1,0 +1,84 @@
+'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
+'Alt+Enter' // Triggers `Todo: Toggle Box`
+'Alt+D' // Triggers `Todo: Toggle Done`
+'Alt+C' // Triggers `Todo: Toggle Cancelled`
+'Alt+S' // Triggers `Todo: Toggle Start`
+'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
+@today @critical @high @low
+
+
+OCP:
+    ☐ Проверить Cpty и Entity везде
+    Quantum:
+        ☐ Cделать один скрипт для обоих холдингов @low
+        ✔ Брать максимальную дату effectiveFrom @done(24-03-21 16:26)
+    Debt:
+        ✔ Поменять местами Cpty и Entity (в rename) @done(24-03-21 16:26)
+        ☐ Валюта
+            ✔ Прогнать SUEK @done(24-03-21 16:27)
+            ✔ EURO @done(24-03-21 15:28)
+    ARAP:
+        ☐ SQL
+        ☐ Один скрипт для обоих
+        ☐ Определять внутригрупповую задолженность @low
+        В идеале сумма требований и объема компании А к В должна совпадать с В к А
+        Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
+        ✔ если заполнен comcode, используем его. Если поле пустое - смотрим на orgname @done(24-03-21 09:02)
+
+Tasks:
+    Coding:
+        ☐ Git 
+        ✔ Oracle to python @Waiting @Check_on_Th @done(24-03-20 14:32)
+        ✔ Функция подключения к БД @done(24-03-21 16:17)
+        ☐ Валюты
+            ☐ CCY_from \ to
+            ☐ Дата выгрузки Today
+        ☐ Mapping to csv
+    Doings:
+        ☐ Дни без содержания @Waiting @Check_on_Th
+
+Archive:
+  ✔ Код на код, чтобы дважды не проходить по столбцу @done(24-03-20 12:38) @project(OCP.Mapping)
+  ✘ global Today @cancelled(24-03-20 12:09) @project(Tasks.Coding)
+  ✔ Excel writer @done(24-03-20 11:37) @project(Код)
+  ✔ Испортировать пандас для всех функций один раз в файле defs @done(24-03-20 11:51) @project(Код)
+  ✔ merge col @done(24-03-20 08:13) @project(Код)
+  ✔ Defs маппинг SalesUnits - выбор столбца merge @done(24-03-20 08:51) @project(ARAP)
+  ✔ Days @done(24-03-20 10:40) @project(ARAP)
+  ✔ 2024 01 - конец января @done(24-03-20 11:28) @project(ARAP)
+  ✔ SUEK @done(24-03-20 11:27) @project(ARAP)
+  ✔ EURO @done(24-03-20 10:40) @project(ARAP)
+  ✔ BS to BS @done(24-03-20 11:27) @project(ARAP)
+  ✔ 2024 02 - конец февраля @done(24-03-20 10:40) @project(ARAP)
+  ✔ SUEK @done(24-03-20 10:40) @project(ARAP)
+  ✔ EURO @done(24-03-20 08:16) @project(ARAP)
+  ✔ BS to BS @done(24-03-20 10:40) @project(ARAP)
+  ✔ Старые таблички название на код @done(24-03-19 12:21) @project(Mapping)
+  ✔ Fillna('External') @done(24-03-19 13:57) @project(Код)
+  ✔ Маппинг @done(24-03-19 13:52) @project(ARAP)
+  ✔ СУЭК sapicdeals - внутренние @done(24-03-18 12:02) @project(Deals)
+  ✔ Дата не подходит для фильтрации @done(24-03-18 12:02) @project(Deals)
+  ✔ В sapicdeals External значения @done(24-03-18 12:02) @project(Deals)
+  ✔ Найти @done(24-03-18 10:17) @project(Deals)
+  ✔ Замаппить @done(24-03-18 10:25) @project(Deals)
+  ✔ Правка Максима @done(24-03-18 12:02) @project(Deals)
+  ✔ Повторить @done(24-03-18 10:34) @project(Deals)
+  ✔ Выгрузить Debt, Swaps, Forwards @done(24-03-19 11:15) @project(БД)
+  ✔ на 31.01.2024 @done(24-03-19 11:15) @project(БД)
+  ✔ на 29.02.2024 @done(24-03-19 09:56) @project(БД)
+  ✔ Прогнать скрипт @done(24-03-19 11:00) @project(БД)
+  ✔ Список мэппинга @done(24-03-19 11:00) @project(БД)
+  ✔ Написать функцию для Period @done(24-03-18 10:26) @project(Код)
+  ✔ кривые названия на код @done(24-03-15 11:50) @project(Mapping)
+  ✔ на Code2 смерджить данные по кодам для названий @done(24-03-15 12:04) @project(Mapping)
+  ✔ Порядок отчетов для холдингов отличается @done(24-03-15 11:39) @project(Investments)
+  ✔ СУЭК sapdeals - внешние @done(24-03-15 14:25) @project(Deals)
+  ✔ добавь еще контрагентов и сроки, как в закладке deals в расчётном файле OCP @done(24-03-15 14:45) @project(Deals)
+  ✔ Названия из старых источников на код @done(24-03-14 14:12) @project(Mapping)
+  ✔ Merge id по CompName (Mapping) @done(24-03-14 15:12) @project(Написать функции для merge)
+  ✔ Удалятй пустые строки для рабочих столбцов @done(24-03-14 15:12) @project(Написать функции для merge)
+  ✔ Deals @done(24-03-14 15:13)
+  ✔ Merge BS по id (SalesUnits) @done(24-03-14 12:50)
+  ✔ RUEMO @done(24-03-14 11:32)
+  ✔ RUESM @done(24-03-14 11:35)
+  ✔ Как экспортировать def в jupyter @done(24-03-14 11:22)

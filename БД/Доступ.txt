@@ -1,0 +1,6 @@
+sql developer создать новое соединение
+хост
+exatest2-scan.moscow.eurochem.ru
+
+RISKCUSTOM
+xxRiscRccess174!
