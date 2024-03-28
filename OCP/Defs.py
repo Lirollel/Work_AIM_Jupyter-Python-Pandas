@@ -29,7 +29,7 @@ def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment',
 # id by CompName
 def merge_Mapping(df, col):
 
-    data = pd.read_excel('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\Методология\\Mapping.xlsx', sheet_name='mapping')
+    data = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\Методология\\Mapping.csv')
     data = data.dropna(subset='CompName').drop_duplicates(subset='CompName')
 
     df = df.reset_index(drop=True)
