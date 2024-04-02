@@ -16,7 +16,7 @@ import oracledb
 # BS, Holding and country by id or sapid
 def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry']):
 
-    data = pd.read_excel('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\salesUnits.xlsx', sheet_name='salesUnits')
+    data = export_from_RISKCUSTOM("""select * from "RISKACCESS"."mdgSalesUnits" """)
     data = data[[id_col, merge_col]]
     data = data.dropna(subset=id_col).drop_duplicates(subset=id_col)
 
