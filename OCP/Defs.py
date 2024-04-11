@@ -8,6 +8,7 @@
 # from Defs import new_list
 # from Defs import export_from_RISKCUSTOM
 # from Defs import add_in_currency_column
+# from Defs import concat_columns
 
 import pandas as pd
 import numpy as np
@@ -79,35 +80,76 @@ def export_from_RISKCUSTOM(query):
     connection.close()
     return data_export
 
+# Конкатенация столбцов
+def concat_columns(df: pd.DataFrame, columns: list):
+    df['concat_columns'] = df[columns].apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
+    return df
+
 # Создание столбца в нужной валюте
-def add_in_currency_column(df, col_with_CCY, col_with_VAL, CCY_to, day_for_export : str = '29/02/24'):
-    data_CCY_map = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\Методология\\CCY_mapping.csv')
+def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, date_is_column: bool, col_with_VAL: str, DATE: str = 'YYYY-MM-DD'):
+    df_columns_list = df.columns.tolist()
+    df['CCY_to'] = CCY_to
     
-    query = f"""
-    select * from "RISKACCESS"."XXMR_MADAB_CONTENT"
-    where
-    "RISKACCESS"."XXMR_MADAB_CONTENT"."COMMODITY_ID" in (2354,322,311,312,314,315,318,2332,2334,2360,9321,9326,9331,9902,10014,7647,33051,9318,9886,2362,33447) and
-    "RISKACCESS"."XXMR_MADAB_CONTENT"."PERIOD" = TO_DATE('{day_for_export}', 'DD/MM/YY')
-    """
-    # Смотри запрос
+    if date_is_column == False:
+        
+        df['date'] = DATE
+        df = concat_columns(df, ['date', col_with_CCY]).rename(columns={'concat_columns': 'date_CCY_from'})
+        df = concat_columns(df, ['date', 'CCY_to']).rename(columns={'concat_columns': 'date_CCY_to'})
 
-    data_export = export_from_RISKCUSTOM(query)[['COMMODITY_ID', 'VALUE1']]
-    values_data = data_export.merge(data_CCY_map, how='left', left_on='COMMODITY_ID', right_on='id', validate='one_to_one')[['VALUE1','CCY_from', 'CCY_to']] 
-    # Может возникнуть ошибка, если значений будет больше
+        Date_SQL_str = "TO_DATE('" + str(DATE) + "', 'YYYY-MM-DD')"
 
+    if date_is_column == True:
+        
+        df[f'{DATE}_str'] = df[DATE].astype(str).str[:10]
+        df = concat_columns(df, [f'{DATE}_str', col_with_CCY]).rename(columns={'concat_columns': 'date_CCY_from'})
+        df = concat_columns(df, [f'{DATE}_str', 'CCY_to']).rename(columns={'concat_columns': 'date_CCY_to'})
+
+        # Создание списка уникальных дат
+        Date_unique_list = df[f'{DATE}_str'].unique().tolist()
+        Date_SQL_list = ["TO_DATE('" + str(x) + "', 'YYYY-MM-DD')" for x in Date_unique_list]
+        Date_SQL_str = str(Date_SQL_list).replace('"','')[1:-1]
+    
+    # Создание списка уникальных валют
+    CCY_unique_list = df[col_with_CCY].unique().tolist()
+    CCY_variations_list = [f"{CCY_to}/" + str(x) for x in CCY_unique_list] + [str(x) + f"/{CCY_to}" for x in CCY_unique_list]
+    data_CCY_map = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\Методология\\CCY_mapping.csv')
+    CCY_id_unique_list = data_CCY_map[data_CCY_map.CCY.isin(CCY_variations_list)].id.unique().tolist()
+    CCY_id_unique_str = str(CCY_id_unique_list)[1:-1]
+
+    # выгрузка из БД по списку уникальных дат и значений валют
+    query = f"""select * from "RISKACCESS"."XXMR_MADAB_CONTENT"
+    where "RISKACCESS"."XXMR_MADAB_CONTENT"."COMMODITY_ID" in ({CCY_id_unique_str})
+    and "RISKACCESS"."XXMR_MADAB_CONTENT"."PERIOD" in ({Date_SQL_str})"""
+    data_export = export_from_RISKCUSTOM(query)[['COMMODITY_ID', 'PERIOD', 'VALUE1']]
+    values_data = data_export.merge(data_CCY_map, how='left', left_on='COMMODITY_ID', right_on='id')[['PERIOD', 'VALUE1','CCY_from', 'CCY_to']] 
+    values_data['PERIOD_str'] = values_data.PERIOD.astype(str).str[:10]
+    values_data = concat_columns(values_data, ['PERIOD_str', 'CCY_to']).rename(columns={'concat_columns': 'date_CCY_to'})
+    values_data = concat_columns(values_data, ['PERIOD_str', 'CCY_from']).rename(columns={'concat_columns': 'date_CCY_from'})
+
+    # Создание словаря значений валют
     coef_dict = {}
-    coef_dict[CCY_to] = 1
-    for CCY_from in df[col_with_CCY].unique():
-        if CCY_from != CCY_to:
-            if CCY_from in values_data.CCY_from.tolist():
-                coef_dict[CCY_from] = values_data.query('CCY_from == @CCY_from & CCY_to == @CCY_to').VALUE1.tolist()[0]
-            if CCY_from in values_data.CCY_to.tolist():
-                coef_dict[CCY_from] = 1/values_data.query('CCY_to == @CCY_from & CCY_from == @CCY_to').VALUE1.tolist()[0]
-            else:
-                continue
+    for i in df.index.tolist():
 
-    df[f'Coef_to_{CCY_to}'] = df[col_with_CCY].replace(coef_dict)
+        date_CCY_from = df.loc[i, 'date_CCY_from']
+        date_CCY_to = df.loc[i, 'date_CCY_to']
+
+        if date_CCY_from != date_CCY_to:
+
+            if date_CCY_from in values_data.date_CCY_from.tolist():
+                coef_dict[date_CCY_from] = values_data.query('date_CCY_from == @date_CCY_from & date_CCY_to == @date_CCY_to').VALUE1.tolist()[0]
+            if date_CCY_from in values_data.date_CCY_to.tolist():
+                coef_dict[date_CCY_from] = 1/values_data.query('date_CCY_to == @date_CCY_from & date_CCY_from == @date_CCY_to').VALUE1.tolist()[0]
+        
+        else:
+            coef_dict[date_CCY_from] = 1
+
+    df[f'Coef_to_{CCY_to}'] = df.date_CCY_from.replace(coef_dict)
     df[f'{col_with_VAL}_in_{CCY_to}'] = df[col_with_VAL] * df[f'Coef_to_{CCY_to}']
 
+    df_columns_list.append(f'Coef_to_{CCY_to}')
+    df_columns_list.append(f'{col_with_VAL}_in_{CCY_to}')
+    df = df[df_columns_list]
+
     return df
+
 
