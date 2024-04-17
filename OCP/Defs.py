@@ -9,6 +9,7 @@
 # from Defs import export_from_RISKCUSTOM
 # from Defs import add_in_currency_column
 # from Defs import concat_columns
+# from Defs import export_from_WHWEEK
 
 import pandas as pd
 import numpy as np
@@ -82,7 +83,7 @@ def export_from_RISKCUSTOM(query):
 
 # Конкатенация столбцов
 def concat_columns(df: pd.DataFrame, columns: list):
-    df['concat_columns'] = df[columns].apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
+    df['concat_columns'] = df[columns].astype(str).apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
     return df
 
 # Создание столбца в нужной валюте
@@ -151,5 +152,12 @@ def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, dat
     df = df[df_columns_list]
 
     return df
+
+def export_from_WHWEEK(query):
+    oracledb.init_oracle_client('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Oracle\\instantclient_21_13')
+    connection = oracledb.connect(user="XXWH", password="xxwh", host="exatest2-scan.moscow.eurochem.ru", port=1521, service_name='whweek.moscow.eurochem.ru', disable_oob= True)
+    data_export = pd.read_sql(query, con=connection)
+    connection.close()
+    return data_export
 
 
