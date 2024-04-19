@@ -144,7 +144,7 @@ def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, dat
         else:
             coef_dict[date_CCY_from] = 1
 
-    df[f'Coef_to_{CCY_to}'] = df.date_CCY_from.replace(coef_dict)
+    df[f'Coef_to_{CCY_to}'] = df.date_CCY_from.replace(coef_dict).fillna(0)
     df[f'{col_with_VAL}_in_{CCY_to}'] = df[col_with_VAL] * df[f'Coef_to_{CCY_to}']
 
     df_columns_list.append(f'Coef_to_{CCY_to}')

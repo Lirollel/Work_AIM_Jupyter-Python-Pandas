@@ -92,6 +92,11 @@ for i in ['EUROCHEM', 'SUEK']:
     ax.set_axisbelow ( True )
     ax.grid(axis='y')
     ax.set(xlabel=None)
+        # Добавление второй оси y
+    ymin, ymax = ax.get_ylim()
+    ax2 = ax.twinx()
+    ax2.set_ylim(ymin, ymax)
+    
     plt.savefig(f'{i}.png')
 
 

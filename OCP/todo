@@ -6,16 +6,10 @@
 @today @critical @high @low
 
 OCP:
-    ☐ Проверить Cpty и Entity везде @On_demand
-    ☐ Все листы на конец марта @critical
-    Quantum:
-        ☐ Форварды и свапы
     ARAP:
         ☐ Определять внутригрупповую задолженность @On_demand
         В идеале сумма требований и объема компании А к В должна совпадать с В к А
         Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
-
-☐ До пятницы условия удаленки @critical 
 
 Coding:
     ☐ Функция валют для столбца и строки
@@ -23,10 +17,6 @@ Coding:
     ☐ pd.concat([data_WHFLEX_not_equal, pd.DataFrame(columns=data_WHFLEX_not_equal.columns, index=[None] * 2)])
 
 Тестовая БД:
-    WHWEEK для QUANTUM на 31.03.2024:
-        ☐ Форварда
-        ☐ СУЭК @critical
-        ☐ Сумма @critical
     ☐ Схождение unifiedOcp с Quantum, Cash
         ☐ Сроки
         ☐ OcpSegment
@@ -34,6 +24,26 @@ Coding:
         ☐ Contragent - классификация на внут и внеш, код, бизнессегмент, имя
 
 Archive:
+  ✔ Проверить Cpty и Entity везде @On_demand @done(24-04-19 11:15) @project(OCP)
+  ✔ Все листы на конец марта @critical @done(24-04-19 11:15) @project(OCP)
+  ✔ Invest @done(24-04-19 11:15) @project(OCP)
+  ✔ Выгрузка Максима @done(24-04-19 11:15) @project(OCP)
+  ✔ Arap @done(24-04-19 08:55) @project(OCP)
+  ✔ Форварда @done(24-04-19 08:38) @project(Тестовая БД.WHWEEK для QUANTUM на 31.03.2024)
+  ✘ Переменная печати листа равна нулю @cancelled(24-04-19 08:38) @project(Тестовая БД.WHWEEK для QUANTUM на 31.03.2024)
+  ✔ Cash @done(24-04-18 14:05) @project(OCP)
+  ✔ Quantum @done(24-04-18 14:05) @project(OCP)
+  ✔ Debt @done(24-04-18 15:13) @project(OCP)
+  ✔ Deals @done(24-04-19 08:38) @project(OCP)
+  ✔ in @done(24-04-19 08:38) @project(OCP)
+  ✔ Форварды и свапы @done(24-04-18 13:59) @project(OCP.Quantum)
+  ✔ Для суэк @done(24-04-18 13:59) @project(OCP.Quantum)
+  ✔ раздел по суэк и еврохим @done(24-04-18 13:04) @project(OCP.Quantum)
+  ✔ До пятницы условия удаленки @critical @done(24-04-19 08:38)
+  ✔  понять от какой даты деривативы в unifiedOCP @done(24-04-18 11:52) @project(Тестовая БД.WHWEEK для QUANTUM на 31.03.2024)
+  ✔ брать другие даты forwards @done(24-04-18 11:52) @project(Тестовая БД.WHWEEK для QUANTUM на 31.03.2024)
+  ✔ СУЭК @critical @done(24-04-18 09:09) @project(Тестовая БД.WHWEEK для QUANTUM на 31.03.2024)
+  ✔ Сумма @critical @done(24-04-18 08:50) @project(Тестовая БД.WHWEEK для QUANTUM на 31.03.2024)
   ✘ ось x равномерно только по данным (день недели по данным) @cancelled(24-04-17 15:00) @project(Ликвидность.График)
   ✔ Cделать один скрипт для обоих холдингов @On_demand @done(24-04-16 11:44) @project(OCP.Quantum)
   ✔ Шкала справа @done(24-04-17 13:36) @project(Ликвидность.График)
