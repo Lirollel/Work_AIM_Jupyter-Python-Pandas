@@ -16,7 +16,7 @@ import numpy as np
 import oracledb
 
 # BS, Holding and country by id or sapid
-def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry']):
+def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry', 'businessSegmentDetailed']):
 
     data = export_from_RISKCUSTOM("""select * from "RISKACCESS"."mdgSalesUnits" """)
     data = data[[id_col,'oebs12ShortCode', merge_col]]
@@ -77,10 +77,10 @@ def Period(df, day_for_count, col_with_date):
     return df
 
 # Запись данных на новый лист существующего файла
-def new_list(df, output_file : str, sheet_name : str, index : bool = False):
+def new_list(df, output_file : str, sheet_name : str, index : bool = False, startrow=0, startcol=0):
 
     with pd.ExcelWriter(output_file, engine='openpyxl', mode='a') as writer:
-        df.to_excel(writer,sheet_name=sheet_name, index=index)
+        df.to_excel(writer,sheet_name=sheet_name, index=index, startrow=startrow, startcol=startcol)
 
 # Подключение к БД и выгрузка данных по запросу
 def export_from_RISKCUSTOM(query):

@@ -17,19 +17,45 @@ Coding:
 
 Ликвидность:
     ☐ Импорт скрипта в py @Waiting
-    ☐ новые триггеры
-    Пороги:
-        ☐ калибровка порогов по методике
-            ☐ Контрагента нет для межгрупповых операций
-            ☐ Документация иточника для разбора полей
-        Задачка – перекалибровать триггеры для отчёта по операционной ликвидности для компаний внутри России.
-        Во вложении два файла, по СУЭК и по ЕХ. На вкладке SQL – запрос. Export Worksheet – результат запроса (с некоторыми доп. столбцами)
-        На weekly – результат.
-        Общий смысл – отделить постоянные операционные расходы от прочих денежных потоков, таких как выплаты долга. Также, нужно исключать платежи между компаниями (это по сути перераспределение ликвидности). В расчёт идут расходы только компаниями вне группы, т.е. наружу.
-        Я не уверен, насколько изменился источник – если с фильтрацией нужных денежных потоков возникнут трудности – пиши, будем разбираться. Может поищем другой источник.
-        Есть еще расшифровка кодов платежей – файл payment types. Может пригодиться.
+        ☐ conda proxy
+
+Limits:
+    ☐ Automate report like liquidity
+        ☐ Automate
+        ☐ xxmrBankLimitsBanks
+        суммировать использование лимита и группировать надо не по BankName, а по Bankid (лимиты выставлены по Bankid)
+        наименования лучше взять из вот этой таблицы xxmrBankLimitsBanks
+        поле name
 
 Archive:
+  ✔ QC @done(24-05-03 14:54) @project(Limits)
+  ✔ Rename columns @done(24-05-03 14:15) @project(Limits)
+  ✔ Print variable @done(24-05-03 14:07) @project(Limits)
+  ✔ сортировку по убыванию по столбцу Active @done(24-05-03 14:15) @project(Limits)
+  ✔ Merge limit and cash by bankid @done(24-05-03 14:44) @project(Limits)
+  ✔ By holdings @done(24-05-03 13:56) @project(Limits)
+  ✔ To excel @done(24-05-03 13:46) @project(Limits)
+  ✔ Sheet limits export @done(24-05-03 12:04) @project(Limits)
+  ✔ DB @done(24-05-03 12:04) @project(Limits)
+  ✔ Columns: @done(24-05-03 12:03) @project(Limits)
+  ✔ Col Limit @done(24-05-03 11:47) @project(Limits)
+  ✔ Segment @done(24-05-03 12:03) @project(Limits)
+  ✔ Tabels: @done(24-05-03 12:03) @project(Limits)
+  ✔ Bank name @done(24-05-03 12:03) @project(Limits)
+  ✔ Bank country @done(24-05-03 12:03) @project(Limits)
+  ✔ Segment @done(24-05-03 12:03) @project(Limits)
+  ✔ Col Active @done(24-05-03 11:47) @project(Limits)
+  ✔ Usage activmoney market, % - summury @done(24-05-03 11:47) @project(Limits)
+  ✔ Col Total @done(24-05-03 11:47) @project(Limits)
+  ✔ Usage, % - summury @done(24-05-03 11:47) @project(Limits)
+  ✔ В столбец «Total» попадают все типы счетов. @done(24-05-03 09:35) @project(Limits)
+  ✔ В использование (столбец «Active») попадают типы счетов active и mmarket из bankAccountsBalanceDaily in mlns @done(24-05-03 09:34) @project(Limits)
+  ✔ bankAccountsBalanceDaily @done(24-05-03 09:24) @project(Limits)
+  +
+  ✔ новые триггеры @done(24-05-02 13:33) @project(Ликвидность)
+  ✔ калибровка порогов по методике @done(24-05-02 13:33) @project(Ликвидность.Пороги)
+  ✘ Контрагента нет для межгрупповых операций @cancelled(24-05-02 13:33) @project(Ликвидность.Пороги)
+  ✘ Документация иточника для разбора полей @cancelled(24-05-02 13:33) @project(Ликвидность.Пороги)
   ✘ pd.concat([data_WHFLEX_not_equal, pd.DataFrame(columns=data_WHFLEX_not_equal.columns, index=[None] * 2)]) @cancelled(24-05-02 12:32) @project(Coding)
   ✘ today @cancelled(24-05-02 12:31) @project(Coding)
   ✔ дублируются записи @done(24-05-02 12:31) @project(Ликвидность)
