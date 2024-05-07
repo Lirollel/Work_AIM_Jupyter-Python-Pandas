@@ -1,13 +1,35 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[6]:
+
+
 print('The "Liquidity" just started running')
 
+
 # Выбор условий выполнения скрипта:
-Print_to_excel = True # Создать excel-файл с расчетами? True/False
+
+# In[7]:
+
+
+manual_sending = False # True/False Заполните это поле, если хотите отправить отчет даже после критичных уведомлений
+
 Print_qualuty_check = True # Вынести QC в отдельный excel-файл? True/False
-Send_mail = True # Создать и отправить письмо с расчетами и графиком? True/False
+Display_QC_mail = True # Показать письмо QC для отправки? True/False
 Send_QC_mail = True # Создать и отправить письмо для QC? True/False
+
+Print_to_excel = True # Создать excel-файл с расчетами? True/False
+Display_mail = True # Показать письмо для отправки? True/False
+Send_mail = True # Создать и отправить письмо с расчетами и графиком? True/False
+
 mail_to = 'TarakanovMIu@aimmngt.com' # Получатель письма
 
+
 # Необходимые импорты:
+
+# In[8]:
+
+
 import pandas as pd
 import numpy as np
 from datetime import date, timedelta
@@ -16,6 +38,12 @@ import matplotlib.pyplot as plt
 import matplotlib.axes as ax
 import openpyxl
 from openpyxl.drawing.image import Image
+import win32com.client as win32
+import os
+
+olApp = win32.Dispatch('Outlook.Application')
+olNS = olApp.GetNameSpace('MAPI')
+
 import sys
 sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP")
 from Defs import merge_SalesUnits
@@ -26,6 +54,141 @@ from Defs import export_from_RISKCUSTOM
 from Defs import add_in_currency_column
 from Defs import concat_columns
 
+
+# QC:
+
+# In[9]:
+
+
+query = """
+SELECT *
+FROM "RISKACCESS"."bankAccountsBalanceDaily"
+WHERE "reportDate" >= trunc(sysdate - interval '30' day)
+ORDER BY "reportDate"
+"""
+# check_day = '2024-04-23'
+# str_check_day = f"""TO_DATE('{check_day}', 'YYYY-MM-DD')"""
+# query = f"""
+# SELECT *
+# FROM "RISKACCESS"."bankAccountsBalanceDaily"
+# WHERE "reportDate" >= trunc(sysdate - interval '30' day) AND "reportDate" < {str_check_day}
+# ORDER BY "reportDate"
+# """
+data_QC_cash = export_from_RISKCUSTOM(query)
+
+# Concat cols and dates
+data_QC_cash['missing_record'] = data_QC_cash[['buCode', 'bankId', 'accountCurrency', 'accountNumber']].astype(str).apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
+last_date = data_QC_cash.reportDate.unique()[-1]
+last_date_str = str(last_date)[:10]
+pre_last_date = data_QC_cash.reportDate.unique()[-2]
+data_QC_cash_pre_last_date = data_QC_cash.loc[data_QC_cash.reportDate == pre_last_date, 'missing_record'].tolist()
+data_QC_cash_last_date = data_QC_cash.loc[data_QC_cash.reportDate == last_date, 'missing_record'].tolist()
+
+# Quality_ckeck.Missing_records
+missing_records = [i for i in data_QC_cash_pre_last_date if i not in data_QC_cash_last_date]
+data_missing_records = data_QC_cash[(data_QC_cash.missing_record.isin(missing_records)) & (data_QC_cash.reportDate == pre_last_date)]
+
+# Quality_ckeck.New_records
+new_records = [i for i in data_QC_cash_last_date if i not in data_QC_cash_pre_last_date]
+data_new_records = data_QC_cash[(data_QC_cash.missing_record.isin(new_records)) & (data_QC_cash.reportDate == last_date)]
+data_new_records['index_cop'] = data_new_records.index
+ind_dict = {}
+for ind in data_new_records['index_cop']:
+    buCode = data_new_records.loc[ind, 'buCode']
+    bankId = data_new_records.loc[ind, 'bankId']
+    accountCurrency = data_new_records.loc[ind, 'accountCurrency']
+    accountNumber = data_new_records.loc[ind, 'accountNumber']
+    
+    query = f"""
+    SELECT MAX ("reportDate") AS max_value
+    FROM "RISKACCESS"."bankAccountsBalanceDaily"
+    WHERE "reportDate" >= trunc(sysdate - interval '3' month) and "reportDate" < TO_DATE('{last_date_str}', 'YYYY-MM-DD')
+    AND "buCode" = '{buCode}'
+    AND "bankId" = '{bankId}'
+    AND "accountNumber" = '{accountNumber}'
+    AND "accountCurrency" = '{accountCurrency}'
+    """
+    data_loop_bd = export_from_RISKCUSTOM(query)
+    ind_dict[ind] = data_loop_bd.loc[0, 'MAX_VALUE']
+data_new_records['index_cop'] = data_new_records['index_cop'].replace(ind_dict).fillna('never')
+data_new_records = data_new_records.rename(columns={'index_cop':'Last_seen_at'})
+
+# Quality_ckeck.Mapping
+data_QC_cash['Map_holding'] =  merge_SalesUnits(data_QC_cash, col='buCode', merge_col='holding')
+data_map_holding = data_QC_cash.loc[(data_QC_cash.Map_holding != data_QC_cash.holding) & (data_QC_cash.reportDate == data_QC_cash.reportDate.max()), ['buCode', 'holding', 'Map_holding']].drop_duplicates()
+
+# Critical alerts
+critical_missed_alert = data_missing_records.balanceUsd.sum() >= 5*(10**6)
+critical_new_alert = data_new_records.balanceUsd.sum() >= 20*(10**6)
+files_list = [x for x in os.listdir() if 'SUEK' in x and '~' not in x]
+critical_date_alert = [x for x in files_list if last_date_str in x] != []
+# if we have at least one critical alert
+missed_alert = 'Alert'
+new_alert = 'Alert'
+critical_alerts_list = [critical_missed_alert, critical_new_alert, critical_date_alert]
+for alert in critical_alerts_list:
+    if manual_sending == False:
+        if alert == True:
+            Print_to_excel = False # Создать excel-файл с расчетами? True/False
+            Display_mail =False # Показать письмо для отправки? True/False
+            Send_mail = False # Создать и отправить письмо с расчетами и графиком? True/False
+        else:
+            continue
+    elif manual_sending == True:
+        Print_qualuty_check = False # Вынести QC в отдельный excel-файл? True/False
+        Display_QC_mail = False # Показать письмо QC для отправки? True/False
+        Send_QC_mail = False # Создать и отправить письмо для QC? True/False
+    if critical_alerts_list.index(alert) == 0:
+        missed_alert = 'CRITICAL'
+    elif critical_alerts_list.index(alert) == 1:
+        new_alert = 'CRITICAL'
+
+# Запись QC в файл:
+Output_file = last_date_str + '_Oper_liquidity_QC.xlsx'
+if Print_qualuty_check == True : ### PRINT
+    data_missing_records.to_excel(Output_file, sheet_name='Пропавшие_счета')
+    new_list(data_new_records, Output_file, sheet_name='Новые_счета', index=True)
+    new_list(data_map_holding, Output_file, sheet_name='Поиск_в_SalesUnits')
+
+# Отправка письма
+mailItem = olApp.CreateItem(0)
+mailItem.BodyFormat = 3
+
+mailItem.Subject = f'QC for operational liquidity {last_date_str}' # mail head
+# mail body
+html_body = f"""<html><body><p>Dear colleagues,<br><br>
+Please find attached quality control of daily operational liquidity report as of {last_date_str}:<br><br>
+&nbsp;&nbsp; Missed records - {'<span style="color: green;">OK</span>' if data_missing_records.empty else f'<span style="color: red;">{missed_alert}</span>'}<br>
+&nbsp;&nbsp; New records - {'<span style="color: green;">OK</span>' if data_new_records.empty else f'<span style="color: red;">{new_alert}</span>'}<br>
+&nbsp;&nbsp; Finding in SalesUnits - {'<span style="color: green;">OK</span>' if data_map_holding.empty else '<span style="color: red;">Alert</span>'}<br>
+&nbsp;&nbsp; There is already a report for this date - {'<span style="color: green;">No</span>' if critical_date_alert == False else '<span style="color: red;">Yes</span>'}<br><br>
+Best regards,<br>
+Maksim Tarakanov<br><br>
+Whatsapp: +7 915 161 29 12<br>
+Financial risk management</p></body></html>"""
+mailItem.To = mail_to # mail to
+mail_from = 'KlimovaAnnaA@aimmngt.com' # mail from
+# mail attachment
+mail_attachment = Output_file 
+
+
+mailItem._oleobj_.Invoke(*(64209, 0, 8, 0, olNS.Accounts.Item(mail_from)))
+mailItem.Attachments.Add(os.path.join(os.getcwd(), mail_attachment))
+mailItem.HTMLBody = html_body
+mailItem.Sensitivity  = 2
+
+# mailItem.Save()
+if Display_QC_mail == True: ### DISPLAY
+    mailItem.Display()
+if Send_QC_mail == True: ### SEND
+    mailItem.Send()
+
+
+# Report:
+
+# In[10]:
+
+
 # Cash:
 query = """
 SELECT "holding", SUM("balanceUsd") AS "cash", "reportDate"
@@ -35,11 +198,11 @@ AND "reportDate" >= trunc(sysdate - interval '3' month)
 GROUP BY "holding", "reportDate"
 ORDER BY "reportDate"
 """
-
 data_cash = export_from_RISKCUSTOM(query)
 data_cash['merge_col'] = data_cash[['holding', 'reportDate']].apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
 data_cash = data_cash.sort_values(['reportDate', 'holding']).reset_index(drop=True)
-data_cash.tail(6)
+
+# Overdraft:
 query = """
 SELECT "companyCode" AS "holding", SUM("bookValuePositionCurrency") AS "pre_overdraft", "reportDate"
 FROM "RISKACCESS"."sapPositionArrears"
@@ -48,12 +211,12 @@ AND "reportDate" >= trunc(sysdate - interval '3' month) AND "reportDate" <= (SEL
 GROUP BY "companyCode", "reportDate"
 ORDER BY "reportDate"
 """
-
 data_overdraft = export_from_RISKCUSTOM(query) # выгрузка запроса
 data_overdraft.holding = data_overdraft.holding.replace({'1100': 'SUEK', 'E200':'EUROCHEM'}) # Переименовывание holding
 data_overdraft['merge_col'] = data_overdraft[['holding', 'reportDate']].apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
 data_overdraft = data_overdraft.sort_values(['reportDate', 'holding']).reset_index(drop=True)
-data_overdraft.tail(6)
+
+# Финальные подсчеты
 data_total = data_cash.merge(data_overdraft, how='outer', left_on='merge_col', right_on='merge_col')
 data_total = data_total.loc[~data_total.cash.isna(), ['reportDate_x', 'holding_x', 'cash', 'pre_overdraft']].rename(columns={'reportDate_x':'reportDate', 'holding_x':'holding'}).reset_index(drop=True)
 data_total.pre_overdraft = data_total.pre_overdraft.fillna(0) # Заполнение пустых значений pre_overdraft нулями
@@ -66,12 +229,17 @@ data_total = add_in_currency_column(df=data_total, col_with_CCY='CCY', col_with_
 data_total = data_total.rename(columns={'overdraft_in_USD':'available_ovedraft'})
 
 data_total['total'] = data_total.cash + data_total.available_ovedraft # расчет total
+# Триггеры
 const_df = pd.DataFrame({'holding':['EUROCHEM', 'SUEK'], 'early_trigger': [164, 251], 'threshold': [93, 183]})
 data_total = data_total.merge(const_df, how='left')
+data_total.loc[(data_total.reportDate >= '2024-04-01') & (data_total.holding == 'EUROCHEM'), 'threshold'] = 70
+data_total.loc[(data_total.reportDate >= '2024-04-01') & (data_total.holding == 'EUROCHEM'), 'early_trigger'] = 159
+data_total.loc[(data_total.reportDate >= '2024-04-01') & (data_total.holding == 'SUEK'), 'threshold'] = 159
+data_total.loc[(data_total.reportDate >= '2024-04-01') & (data_total.holding == 'SUEK'), 'early_trigger'] = 273
+
 data_total[['cash', 'available_ovedraft', 'total']] = data_total[['cash', 'available_ovedraft', 'total']].astype(int).apply(lambda z: z/10**6)
 data_total['day_of_week'] = data_total.reportDate.dt.day_of_week
-data_total.head(2)
-data_cash.shape, data_overdraft.shape, data_total.shape
+
 data_total_dates_sql = [f"TO_DATE('{x}','YYYY-MM-DD')" for x in data_total.reportDate.astype(str).unique().tolist()]
 data_total_dates_sql = str(data_total_dates_sql).replace('"','')[1:-1]
 
@@ -107,8 +275,6 @@ data_total['debt_abs'] = data_total.debt_outflow.abs()
 data_total['threshold_debt'] = data_total.threshold + data_total.debt_abs
 data_total['early_trigger_debt'] = data_total.early_trigger + data_total.debt_abs
 
-data_total[data_total.debt_outflow != 0].head(2)
-
 # Графики:
 for i in ['EUROCHEM', 'SUEK']:
     data_plot = data_total.query("holding==@i")
@@ -136,9 +302,9 @@ for i in ['EUROCHEM', 'SUEK']:
     xticks = data_plot.loc[data_plot.day_of_week.isin([4]), 'reportDate'].sort_values().tolist()
     plt.xticks(xticks, rotation=45, ha="right")
     xticks_labels = data_plot.loc[data_plot.day_of_week.isin([4]), 'reportDate'].astype(str).sort_values().tolist()
-    ax.set_xticklabels( xticks_labels, rotation=45, ha="right" )
+    ax.set_xticklabels(xticks_labels, rotation=45, ha="right" )
     plt.title(f'{i} RUS (mln USD)') # название графика
-    
+
     plt.tight_layout()
     plt.savefig(f'{i}.png')
 
@@ -147,79 +313,28 @@ TD = data_total.reportDate.max()
 TD_str = str(TD)[:10]
 Output_file_SUEK = TD_str + '_Oper_liquidity_SUEK.xlsx'
 Output_file_ECH = TD_str + '_Oper_liquidity_EUROCHEM.xlsx'
-
 if Print_to_excel == True:
-  for i in ['EUROCHEM', 'SUEK']:
-      data_print = data_total.query("holding==@i")[['reportDate', 'cash', 'available_ovedraft', 'total', 'debt_outflow','early_trigger', 'threshold']]
-      Output_file = TD_str + '_Oper_liquidity_' + i + '.xlsx'
-      data_print.to_excel(Output_file, index=False)
-      # Create a new or open existing Excel file with openpyxl
-      wb = openpyxl.load_workbook(Output_file)  # Open existing or create new
-      ws = wb.active
-      # Error handling: Check if image file exists
-      try:
-        img = Image(f'{i}.png')
-      except FileNotFoundError:
-        print("Error: Image file 'EUROCHEM.png' not found. Skipping image insertion.")
-        img = None  # Set img to None to avoid potential errors
-      # Insert image if it exists
-      if img:
-        img.anchor = 'H37'  # Adjust cell reference as needed
-        ws.add_image(img)
-      # Save the Excel file (overwrite if existing)
-      wb.save(Output_file)
-data_total.head(2)
+    for i in ['EUROCHEM', 'SUEK']:
+        data_print = data_total.query("holding==@i")[['reportDate', 'cash', 'available_ovedraft', 'total', 'debt_outflow','early_trigger', 'threshold']]
+        Output_file = TD_str + '_Oper_liquidity_' + i + '.xlsx'
+        data_print.to_excel(Output_file, index=False)
+        # Create a new or open existing Excel file with openpyxl
+        wb = openpyxl.load_workbook(Output_file)  # Open existing or create new
+        ws = wb.active
+        # Error handling: Check if image file exists
+        try:
+            img = Image(f'{i}.png')
+        except FileNotFoundError:
+            print("Error: Image file 'EUROCHEM.png' not found. Skipping image insertion.")
+            img = None  # Set img to None to avoid potential errors
+        # Insert image if it exists
+        if img:
+            img.anchor = 'H37'  # Adjust cell reference as needed
+            ws.add_image(img)
+        # Save the Excel file (overwrite if existing)
+        wb.save(Output_file)
 
-# Quality_ckeck.Missing_records
-query = """
-SELECT *
-FROM "RISKACCESS"."bankAccountsBalanceDaily"
-WHERE "reportDate" >= trunc(sysdate - interval '30' day)
-ORDER BY "reportDate"
-"""
-
-data_QC_cash = export_from_RISKCUSTOM(query)
-data_QC_cash.tail(3)
-data_QC_cash['missing_record'] = data_QC_cash[['buCode', 'bankId', 'accountCurrency', 'accountNumber']].astype(str).apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
-
-last_date = data_QC_cash.reportDate.unique()[-1]
-pre_last_date = data_QC_cash.reportDate.unique()[-2]
-data_QC_cash_pre_last_date = data_QC_cash.loc[data_QC_cash.reportDate == pre_last_date, 'missing_record'].tolist()
-data_QC_cash_last_date = data_QC_cash.loc[data_QC_cash.reportDate == last_date, 'missing_record'].tolist()
-
-missing_records = [i for i in data_QC_cash_pre_last_date if i not in data_QC_cash_last_date]
-
-data_missing_records = data_QC_cash[(data_QC_cash.missing_record.isin(missing_records)) & (data_QC_cash.reportDate == pre_last_date)]
-data_missing_records.head(2)
-
-# Quality_ckeck.New_records
-new_records = [i for i in data_QC_cash_last_date if i not in data_QC_cash_pre_last_date]
-
-data_new_records = data_QC_cash[(data_QC_cash.missing_record.isin(new_records)) & (data_QC_cash.reportDate == last_date)]
-data_new_records.head(2)
-
-# Quality_ckeck.Mapping
-data_QC_cash['Map_holding'] = merge_SalesUnits(data_QC_cash, col='buCode', merge_col='holding')
-data_QC_cash['Map_holding_2'] = merge_SalesUnits(data_QC_cash, col='buCode', id_col='oebs12ShortCode', merge_col='holding')
-data_QC_cash.loc[data_QC_cash.Map_holding_2 == 'External' ,'Map_holding_2'] = data_QC_cash.loc[data_QC_cash.Map_holding_2 == 'External' ,'Map_holding']
-data_map_holding = data_QC_cash.loc[(data_QC_cash.Map_holding_2 != data_QC_cash.holding) & (data_QC_cash.reportDate == data_QC_cash.reportDate.max()), ['buCode', 'holding', 'Map_holding_2']].drop_duplicates()
-data_map_holding
-
-# Запись QC в файл:
-str(last_date)[:10]
-Output_file = str(last_date)[:10] + '_Oper_liquidity_QC.xlsx'
-
-if Print_qualuty_check == True :
-    data_missing_records.to_excel(Output_file, sheet_name='Пропавшие_счета')
-    new_list(data_new_records, Output_file, sheet_name='Новые_счета', index=True)
-    new_list(data_map_holding, Output_file, sheet_name='Поиск_в_SalesUnits')
-
-# Создание письма:
-import win32com.client as win32
-import os
-olApp = win32.Dispatch('Outlook.Application')
-olNS = olApp.GetNameSpace('MAPI')
-
+# Создание писем:
 for i in ['EUROCHEM', 'SUEK']:
     mailItem = olApp.CreateItem(0)
     mailItem.BodyFormat = 3
@@ -249,38 +364,21 @@ for i in ['EUROCHEM', 'SUEK']:
     mailItem.Sensitivity  = 2
 
     # mailItem.Save()
-    mailItem.Display()
+    if Display_mail == True:
+        mailItem.Display()
     if Send_mail == True:
         mailItem.Send()
 
-mailItem = olApp.CreateItem(0)
-mailItem.BodyFormat = 3
 
-mailItem.Subject = f'QC for operational liquidity {TD_str}' # mail head
-# mail body
-html_body = f"""<html><body><p>Dear colleagues,<br><br>
-Please find attached quality control of daily operational liquidity report as of {TD_str}:<br><br>
-&nbsp;&nbsp; Missed records - {'<span style="color: green;">OK</span>' if data_missing_records.empty else '<span style="color: red;">Alert</span>'}<br>
-&nbsp;&nbsp; New records - {'<span style="color: green;">OK</span>' if data_new_records.empty else '<span style="color: red;">Alert</span>'}<br>
-&nbsp;&nbsp; Finding in SalesUnits - {'<span style="color: green;">OK</span>' if data_map_holding.empty else '<span style="color: red;">Alert</span>'}<br><br>
-Best regards,<br>
-Maksim Tarakanov<br><br>
-Whatsapp: +7 915 161 29 12<br>
-Financial risk management</p></body></html>"""
-mailItem.To = mail_to # mail to
-mail_from = 'KlimovaAnnaA@aimmngt.com' # mail from
-# mail attachment
-mail_attachment = Output_file 
+# In[11]:
 
 
-mailItem._oleobj_.Invoke(*(64209, 0, 8, 0, olNS.Accounts.Item(mail_from)))
-mailItem.Attachments.Add(os.path.join(os.getcwd(), mail_attachment))
-mailItem.HTMLBody = html_body
-mailItem.Sensitivity  = 2
+data_cash.shape, data_overdraft.shape, data_total.shape
 
-# mailItem.Save()
-mailItem.Display()
-if Send_QC_mail == True:
-    mailItem.Send()
+
+# In[12]:
+
 
 print('The "Liquidity" was finished')
+
+

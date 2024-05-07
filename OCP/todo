@@ -5,29 +5,57 @@
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 @today @critical @high @low
 
+Work:
+    ✔ employment contract @done(24-05-07 14:58)
+    ☐ the call continued joint cooperation
+    ☐ day off for flying
+
 OCP:
     ARAP:
         ☐ Определять внутригрупповую задолженность @On_demand
         В идеале сумма требований и объема компании А к В должна совпадать с В к А
         Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
+Limits:
+    ✔ columns (порядок) - limitss, ctive, % active, total, @done(24-05-07 10:56)
+    ✔ %_total @done(24-05-07 10:54)
+    ✔ -inf DEUTDE @done(24-05-07 11:04)
+    ✔ round dctive total - 0,01, % - 0,1 @done(24-05-07 10:52)
+    ✔ first row - holding @done(24-05-07 13:53)
+    ✔ sort by active, total @done(24-05-07 10:55)
+    Format:
+        ☐ weight of columns - for names
+        ☐ boorder = cell.border - dont change exists lines
+        ✔ colors like in first tabel @done(24-05-07 13:19)
+        ✔ tabels in lines, names in lines @done(24-05-07 13:44)
+        ☐ errors - red color:
+            ☐ no limit, but active
+            ☐ doc - red and orange
+        ✔ holding - color, bold @done(24-05-07 13:53)
+        ✔ format by holdings @done(24-05-07 14:12)
+    ☐ convert
 
 Coding:
     ☐ Функция валют для столбца и строки
         ☐ проверка столбца даты на соответсвие типу даты
-
-Ликвидность:
-    ☐ Импорт скрипта в py @Waiting
-        ☐ conda proxy
-
-Limits:
-    ☐ Automate report like liquidity
-        ☐ Automate
-        ☐ xxmrBankLimitsBanks
-        суммировать использование лимита и группировать надо не по BankName, а по Bankid (лимиты выставлены по Bankid)
-        наименования лучше взять из вот этой таблицы xxmrBankLimitsBanks
-        поле name
+    ☐ jupyter nbconvert --to python Daily_report.ipynb
 
 Archive:
+  ✔ automate task @done(24-05-07 08:35) @project(Ликвидность)
+  ✔ Automate report like liquidity @done(24-05-07 08:35) @project(Limits)
+  ✔ automate task @done(24-05-07 08:34) @project(Limits)
+  ✔ mail @done(24-05-07 08:23) @project(Limits)
+  ✔ convert @done(24-05-07 08:28) @project(Limits)
+  ✔ sort by activefrom @done(24-05-06 17:07) @project(Limits)
+  ✔ Automate @done(24-05-07 08:34) @project(Limits)
+  ✔ Правки в юпитер - принты, удаление лишних выполнений @done(24-05-06 16:49) @project(Limits)
+  ✔ convert @done(24-05-06 16:52) @project(Limits)
+  ✔ Правка Максим @done(24-05-06 16:49) @project(Limits)
+  ✔ Импорт скрипта в py @Waiting @done(24-05-06 16:08) @project(Ликвидность)
+  ✔ File name to bat @done(24-05-06 16:10) @project(Ликвидность)
+  ✔ Bat @done(24-05-06 16:08) @project(Limits)
+  ✔ import to py @done(24-05-06 16:08) @project(Limits)
+  ✔ xxmrBankLimitsBanks @done(24-05-06 09:24) @project(Limits)
+  ✔ conda proxy @done(24-05-03 14:56) @project(Ликвидность)
   ✔ QC @done(24-05-03 14:54) @project(Limits)
   ✔ Rename columns @done(24-05-03 14:15) @project(Limits)
   ✔ Print variable @done(24-05-03 14:07) @project(Limits)
