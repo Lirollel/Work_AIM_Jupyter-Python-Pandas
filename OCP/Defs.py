@@ -18,8 +18,8 @@ import oracledb
 # BS, Holding and country by id or sapid
 def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry', 'businessSegmentDetailed']):
 
-    data = export_from_RISKCUSTOM("""select * from "RISKACCESS"."mdgSalesUnits" """)
-    data = data[[id_col,'oebs12ShortCode', merge_col]]
+    data = export_from_RISKCUSTOM(f"""select "{id_col}", "oebs12ShortCode", "{merge_col}" from "RISKACCESS"."mdgSalesUnits" """)
+    # data = data[[id_col,'oebs12ShortCode', merge_col]]
     data_id_col = data.dropna(subset=id_col).drop_duplicates(subset=id_col)
     data_oebs12ShortCode = data.dropna(subset='oebs12ShortCode').drop_duplicates(subset='oebs12ShortCode')
 

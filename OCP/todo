@@ -6,7 +6,6 @@
 @today @critical @high @low
 
 Work:
-    ✔ employment contract @done(24-05-07 14:58)
     ☐ the call continued joint cooperation
     ☐ day off for flying
 
@@ -16,22 +15,8 @@ OCP:
         В идеале сумма требований и объема компании А к В должна совпадать с В к А
         Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
 Limits:
-    ✔ columns (порядок) - limitss, ctive, % active, total, @done(24-05-07 10:56)
-    ✔ %_total @done(24-05-07 10:54)
-    ✔ -inf DEUTDE @done(24-05-07 11:04)
-    ✔ round dctive total - 0,01, % - 0,1 @done(24-05-07 10:52)
-    ✔ first row - holding @done(24-05-07 13:53)
-    ✔ sort by active, total @done(24-05-07 10:55)
     Format:
         ☐ weight of columns - for names
-        ☐ boorder = cell.border - dont change exists lines
-        ✔ colors like in first tabel @done(24-05-07 13:19)
-        ✔ tabels in lines, names in lines @done(24-05-07 13:44)
-        ☐ errors - red color:
-            ☐ no limit, but active
-            ☐ doc - red and orange
-        ✔ holding - color, bold @done(24-05-07 13:53)
-        ✔ format by holdings @done(24-05-07 14:12)
     ☐ convert
 
 Coding:
@@ -40,6 +25,26 @@ Coding:
     ☐ jupyter nbconvert --to python Daily_report.ipynb
 
 Archive:
+  ✔ format if print excel == true @done(24-05-08 12:51) @project(Limits)
+  ✔ send mail if true @done(24-05-08 12:51) @project(Limits)
+  ✔ two files and mails @done(24-05-08 12:20) @project(Limits.Format)
+  ✔ png o table to mail @done(24-05-08 12:49) @project(Limits.Format)
+  ✔ errors - red color: @done(24-05-08 10:16) @project(Limits.Format)
+  ✔ no limit, but active @done(24-05-08 10:16) @project(Limits.Format)
+  ✔ doc - red and orange @done(24-05-08 09:08) @project(Limits.Format)
+  ✔ holding - color, bold @done(24-05-07 13:53) @project(Limits.Format)
+  ✔ employment contract @done(24-05-07 14:58) @project(Work)
+  ✔ columns (порядок) - limitss, ctive, % active, total, @done(24-05-07 10:56) @project(Limits)
+  ✔ format by holdings @done(24-05-07 14:12) @project(Limits.Format)
+  ✔ red fill @done(24-05-08 12:10) @project(Limits.Format)
+  ✔ colors like in first tabel @done(24-05-07 13:19) @project(Limits.Format)
+  ✔ tabels in lines, names in lines @done(24-05-07 13:44) @project(Limits.Format)
+  ✔ sort by active, total @done(24-05-07 10:55) @project(Limits)
+  ✘ boorder = cell.border - dont change exists lines @cancelled(24-05-08 12:10) @project(Limits.Format)
+  ✔ %_total @done(24-05-07 10:54) @project(Limits)
+  ✔ -inf DEUTDE @done(24-05-07 11:04) @project(Limits)
+  ✔ round dctive total - 0,01, % - 0,1 @done(24-05-07 10:52) @project(Limits)
+  ✔ first row - holding @done(24-05-07 13:53) @project(Limits)
   ✔ automate task @done(24-05-07 08:35) @project(Ликвидность)
   ✔ Automate report like liquidity @done(24-05-07 08:35) @project(Limits)
   ✔ automate task @done(24-05-07 08:34) @project(Limits)
