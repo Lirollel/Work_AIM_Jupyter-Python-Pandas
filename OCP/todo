@@ -8,23 +8,44 @@
 Work:
     ☐ the call continued joint cooperation
     ☐ day off for flying
+    ☐ think about peoples and the new life
 
-OCP:
-    ARAP:
-        ☐ Определять внутригрупповую задолженность @On_demand
-        В идеале сумма требований и объема компании А к В должна совпадать с В к А
-        Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
 Limits:
     Format:
-        ☐ weight of columns - for names
-    ☐ convert
+        ☐ weight of columns - for names @On_demand
 
 Coding:
     ☐ Функция валют для столбца и строки
         ☐ проверка столбца даты на соответсвие типу даты
     ☐ jupyter nbconvert --to python Daily_report.ipynb
 
+OCP:
+    ARAP:
+        ☐ Определять внутригрупповую задолженность 
+        В идеале сумма требований и объема компании А к В должна совпадать с В к А
+        Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
+            ☐ сбить по общим суммам в разрезе валют, так как по срокам будут разъезжаться
+            ☐ Максим
+        ☐ Бразильская дебиторка-кредиторка вхв: что лежит, на какую дату, сводная, если арап
+                ☐ period
+
 Archive:
+  ✔ "externalPayableDebt" @done(24-05-13 15:52) @project(OCP.ARAP)
+  ✔ cty code @done(24-05-13 13:07) @project(OCP.ARAP)
+  ✔ pivot @done(24-05-13 15:52) @project(OCP.ARAP)
+  ✔ manual mapping @done(24-05-13 13:09) @project(OCP.ARAP)
+  ✔ cty segment @done(24-05-13 13:07) @project(OCP.ARAP)
+  ✔ amount usd @done(24-05-13 13:07) @project(OCP.ARAP)
+  ✔ суммировать столбец в долларах и считать кол-во записей @done(24-05-13 12:53) @project(OCP.ARAP)
+  ✔ "externalReceivableDebt" @done(24-05-13 15:43) @project(OCP.ARAP)
+  ✔ есть кредиторка @done(24-05-13 11:58) @project(OCP.ARAP)
+  ✔ есть ли внутригрупповые - деб и кред @done(24-05-13 11:58) @project(OCP.ARAP)
+  ✔ какие компании - суэк, еврохим, бизнес-сегмент, коды @done(24-05-13 11:56) @project(OCP.ARAP)
+  ✔ есть ли дебиторка @done(24-05-13 11:58) @project(OCP.ARAP)
+  ✔ пробежаться по маппингу @done(24-05-13 11:52) @project(OCP.ARAP)
+  ✔ есть ли что-то на конец апреля @done(24-05-13 12:53) @project(OCP.ARAP)
+  ✔ convert @done(24-05-13 11:31) @project(Limits)
+  ✔ ликвидность убрать из автоматической рассылки @done(24-05-13 11:32) @project(Coding)
   ✔ format if print excel == true @done(24-05-08 12:51) @project(Limits)
   ✔ send mail if true @done(24-05-08 12:51) @project(Limits)
   ✔ two files and mails @done(24-05-08 12:20) @project(Limits.Format)
