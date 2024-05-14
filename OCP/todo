@@ -8,11 +8,7 @@
 Work:
     ☐ the call continued joint cooperation
     ☐ day off for flying
-    ☐ think about peoples and the new life
-
-Limits:
-    Format:
-        ☐ weight of columns - for names @On_demand
+    ✔ think about peoples and the new life @done(24-05-14 15:16)
 
 Coding:
     ☐ Функция валют для столбца и строки
@@ -25,11 +21,14 @@ OCP:
         В идеале сумма требований и объема компании А к В должна совпадать с В к А
         Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
             ☐ сбить по общим суммам в разрезе валют, так как по срокам будут разъезжаться
-            ☐ Максим
-        ☐ Бразильская дебиторка-кредиторка вхв: что лежит, на какую дату, сводная, если арап
-                ☐ period
 
 Archive:
+  ✔ weight of columns - for names @On_demand @done(24-05-14 15:14) @project(Limits.Format)
+  ✔ convert @done(24-05-14 15:15) @project(Limits.Format)
+  ✔ выгрузить весь источник по одному из дублей @done(24-05-14 14:52) @project(OCP.ARAP)
+  ✔ Максим @done(24-05-13 16:22) @project(OCP.ARAP)
+  ✔ Бразильская дебиторка-кредиторка вхв: что лежит, на какую дату, сводная, если арап @done(24-05-13 16:13) @project(OCP.ARAP)
+  ✔ period @done(24-05-13 16:12) @project(OCP.ARAP)
   ✔ "externalPayableDebt" @done(24-05-13 15:52) @project(OCP.ARAP)
   ✔ cty code @done(24-05-13 13:07) @project(OCP.ARAP)
   ✔ pivot @done(24-05-13 15:52) @project(OCP.ARAP)

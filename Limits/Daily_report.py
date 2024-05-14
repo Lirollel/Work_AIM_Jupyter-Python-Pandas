@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[20]:
 
 
 print('The "Limits" just started running')
 
 
-# In[2]:
+# In[21]:
 
 
 import pandas as pd
@@ -38,7 +38,7 @@ from Defs import add_in_currency_column
 from Defs import concat_columns
 
 
-# In[3]:
+# In[22]:
 
 
 # manual_sending = False # True/False Заполните это поле, если хотите отправить отчет даже после критичных уведомлений
@@ -54,7 +54,7 @@ Send_mail = True # Создать и отправить письмо с расч
 mail_to = 'TarakanovMIu@aimmngt.com' # Получатель письма
 
 
-# In[4]:
+# In[23]:
 
 
 query = f"""
@@ -162,7 +162,7 @@ for holding in holding_list:
 
 
 
-# In[5]:
+# In[24]:
 
 
 ### FORMAT
@@ -236,12 +236,14 @@ if Print_to_excel == True:
             for row in ws[color_area]:
                 for cell in row:
                     cell.font = Font(color="00FF9900") # orange
+        # Weight of A column
+        ws.column_dimensions['A'].width = 30
         # close file
         wb.save(Output_file)
         wb.close() 
 
 
-# In[6]:
+# In[28]:
 
 
 ### Отправка письма
@@ -295,29 +297,15 @@ for holding in holding_list:
         mailItem.Send()
 
 
-# In[7]:
+# In[26]:
 
 
 manual_map = BABD_data_work.loc[BABD_data_work['Segment'] == 'External', ['holding', 'buCode']]
 manual_map
 
 
-# In[8]:
+# In[27]:
 
 
 print('The "Limits" was finished')
-
-
-# In[9]:
-
-
-wb = openpyxl.load_workbook('2024-05-06_limits_report.xlsx')
-ws = wb['EUROCHEM']
-
-
-ws.autofit_column_width()
-
-wb.save('2024-05-06_limits_report.xlsx')
-wb.close()
-
 
