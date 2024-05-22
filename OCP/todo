@@ -6,23 +6,65 @@
 @today @critical @high @low
 
 Work:
-    ☐ the call continued joint cooperation
-    ☐ day off for flying
-    ✔ think about peoples and the new life @done(24-05-14 15:16)
+    ☐ day off for 21-th
+    ☐ 24-th переезд
 
 Coding:
     ☐ Функция валют для столбца и строки
         ☐ проверка столбца даты на соответсвие типу даты
+    ☐ .astype(str).agg('.'.join, axis=1)
     ☐ jupyter nbconvert --to python Daily_report.ipynb
 
 OCP:
+    Sheets:
+        ☐ ARAP
+        ☐ Cash
+        ☐ Deals
+        ☐ Debt
+        ☐ Invest
+            ☐ Data
+        ☐ Quantum
     ARAP:
-        ☐ Определять внутригрупповую задолженность 
-        В идеале сумма требований и объема компании А к В должна совпадать с В к А
-        Необходимы листы с совпадающими значениями и несовпадающими значениями для ручного осмотра
-            ☐ сбить по общим суммам в разрезе валют, так как по срокам будут разъезжаться
+        Comparison_bd:
+            ☐ разница в валютах хранящихся
+            ☐ наличие уплаченного долга
 
 Archive:
+  ✔ Что с качеством данных? Всегда ли важные поля из первого пункта заполнены? @done(24-05-22 08:12) @project(OCP.Testing)
+  ✔ Есть ли внутригрупповые сделки? Если есть, то есть ли соответствие встречных требований? @done(24-05-22 08:04) @project(OCP.Testing)
+  ✔ merge mistakes @done(24-05-22 08:06) @project(OCP.Testing)
+  ✔ How much @done(24-05-22 07:29) @project(OCP.Testing.Data)
+  ✔ money @done(24-05-22 07:29) @project(OCP.Testing.Data)
+  ✔ ccy @done(24-05-22 07:29) @project(OCP.Testing.Data)
+  ✔ term @done(24-05-22 07:29) @project(OCP.Testing.Data)
+  ✔ Counterpatry @done(24-05-22 07:28) @project(OCP.Testing.Data)
+  ✔ what @done(24-05-22 07:29) @project(OCP.Testing.Data)
+  ✔ the call continued joint cooperation @done(24-05-21 11:06) @project(Work)
+  ✔ Comp @done(24-05-22 07:28) @project(OCP.Testing.Data)
+  ✔ конец апреля @done(24-05-21 10:48) @project(OCP)
+  ✔ holding @done(24-05-20 09:09) @project(OCP.ARAP.Comparison_bd)
+  ✔ крайние случаи расхождения по курсу - все что больше 2 и все что меньше 1/2 @done(24-05-21 10:42) @project(OCP.ARAP.Comparison_bd)
+  ✔ day off for flying @done(24-05-20 13:27) @project(Work)
+  ✔ day off 21-th @done(24-05-20 13:27) @project(Work)
+  ✔ data? @done(24-05-20 10:03) @project(OCP.ARAP.Comparison_bd)
+  ✔ список - переменная @done(24-05-20 10:03) @project(OCP.ARAP.Comparison_bd)
+  ✔ enother systems analys all rates @done(24-05-17 12:57) @project(OCP.ARAP.Comparison_bd)
+  ✔ analis where dollar == 1 @done(24-05-17 12:56) @project(OCP.ARAP.Comparison_bd)
+  ✔ unic companyies @done(24-05-17 12:56) @project(OCP.ARAP.Comparison_bd)
+  ✔ unic ccy @done(24-05-17 12:56) @project(OCP.ARAP.Comparison_bd)
+  ✔ unic sourse @done(24-05-17 12:56) @project(OCP.ARAP.Comparison_bd)
+  ✔ provisions filter @done(24-05-17 11:47) @project(OCP.ARAP.ARAP_counterclaims)
+  ✔ ar vs ap @done(24-05-17 12:18) @project(OCP.ARAP.ARAP_counterclaims)
+  ✔ group problem @done(24-05-17 12:18) @project(OCP.ARAP.ARAP_counterclaims)
+  ✔ Определять внутригрупповую задолженность @done(24-05-17 11:36) @project(OCP.ARAP)
+  ✔ сбить по общим суммам в разрезе валют, так как по срокам будут разъезжаться @done(24-05-17 11:36) @project(OCP.ARAP)
+  ✔ проверить гипотезу про пересчёт через функциональную валюту по курсу на другую дату. @done(24-05-16 06:35) @project(OCP.ARAP.New task)
+  ✔ risk folder @done(24-05-16 04:54) @project(Work)
+  ✔ найти такие экстраординарные случаи (если их очень много – можно выборку из 10-20 примеров) @done(24-05-16 06:35) @project(OCP.ARAP.New task)
+  ✔ столбцы bankCountry и Segment тоже сделать немного пошире, чтобы было видно названия @done(24-05-15 09:58) @project(Limits)
+  ✔ столбцы Active и Total принудительно сделать чтобы было 2 знака после запятой (т.е. когда округляется до 10,6 мы бы видели 10,60) @done(24-05-15 10:51) @project(Limits)
+  ✔ think about peoples and the new life @done(24-05-14 15:16) @project(Work)
+  ✔ Daily report last changing @done(24-05-15 11:45) @project(Coding)
   ✔ weight of columns - for names @On_demand @done(24-05-14 15:14) @project(Limits.Format)
   ✔ convert @done(24-05-14 15:15) @project(Limits.Format)
   ✔ выгрузить весь источник по одному из дублей @done(24-05-14 14:52) @project(OCP.ARAP)

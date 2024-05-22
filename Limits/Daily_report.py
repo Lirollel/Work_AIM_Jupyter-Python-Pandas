@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[20]:
+# In[6]:
 
 
 print('The "Limits" just started running')
 
 
-# In[21]:
+# In[7]:
 
 
 import pandas as pd
@@ -38,7 +38,7 @@ from Defs import add_in_currency_column
 from Defs import concat_columns
 
 
-# In[22]:
+# In[8]:
 
 
 # manual_sending = False # True/False Заполните это поле, если хотите отправить отчет даже после критичных уведомлений
@@ -51,10 +51,11 @@ Print_to_excel = True # Создать excel-файл с расчетами? Tru
 Display_mail = True # Показать письмо для отправки? True/False
 Send_mail = True # Создать и отправить письмо с расчетами и графиком? True/False
 
-mail_to = 'TarakanovMIu@aimmngt.com' # Получатель письма
+# mail_to = 'KlimovaAnnaA@aimmngt.com' # Получатель письма
+mail_to = 'TarakanovMIu@aimmngt.com'
 
 
-# In[23]:
+# In[29]:
 
 
 query = f"""
@@ -104,7 +105,7 @@ data_BLB = data_xxmrBankLimitsBanks.drop_duplicates(subset='bankId').dropna()
 BABD_data_work['bank_name'] = BABD_data_work.merge(data_BLB, how='left', left_on='bankId', right_on='bankId', validate='many_to_one').iloc[:, -2]
 # rounding
 BABD_data_work[['Usage_activmoney_market','Usage']] = BABD_data_work[['Usage_activmoney_market','Usage']].apply(lambda x:round(x, 1))
-BABD_data_work[['balanceUsd_mln','balanceUsd_activmoney_market', 'Limit']] = BABD_data_work[['balanceUsd_mln','balanceUsd_activmoney_market', 'Limit']].apply(lambda x:round(x, 2))
+BABD_data_work[['balanceUsd_mln','balanceUsd_activmoney_market', 'Limit']] = BABD_data_work[['balanceUsd_mln','balanceUsd_activmoney_market', 'Limit']].round(2)
 
 ### TO EXCEL
 BABD_data_work = BABD_data_work.rename(columns={'balanceUsd_activmoney_market':'Active', 'balanceUsd_mln':'Total', 'Usage_activmoney_market':'%_active', 'Usage':'%_total'})
@@ -150,7 +151,7 @@ for holding in holding_list:
         Output_file = '_'.join([report_date, holding,'limits_report.xlsx'])
         writer = pd.ExcelWriter(Output_file, engine='openpyxl')  
         workbook=writer.book
-        pd.DataFrame({'holding':holding}, index=[1]).to_excel(writer, sheet_name=holding, index=False, header=False)
+        pd.DataFrame({'holding':f'{holding} (in MUSD)'}, index=[1]).to_excel(writer, sheet_name=holding, index=False, header=False)
         tabel_bankName.to_excel(writer, sheet_name=holding, index=False, startrow=1)
         table_bankCountryCode.to_excel(writer, sheet_name=holding, startcol=8, index=False, startrow=1)
         table_Segment.to_excel(writer, sheet_name=holding, startcol=13, index=False, startrow=1)
@@ -162,7 +163,7 @@ for holding in holding_list:
 
 
 
-# In[24]:
+# In[37]:
 
 
 ### FORMAT
@@ -237,13 +238,39 @@ if Print_to_excel == True:
                 for cell in row:
                     cell.font = Font(color="00FF9900") # orange
         # Weight of A column
-        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['A'].width = 29
+        ws.column_dimensions['B'].width = 8
+        ws.column_dimensions['C'].width = 12
+        ws.column_dimensions['D'].width = 8
+        ws.column_dimensions['E'].width = 8
+        ws.column_dimensions['F'].width = 8
+        ws.column_dimensions['G'].width = 5
+        ws.column_dimensions['H'].width = 5
+        ws.column_dimensions['I'].width = 16
+        ws.column_dimensions['J'].width = 8
+        ws.column_dimensions['K'].width = 8
+        ws.column_dimensions['L'].width = 5
+        ws.column_dimensions['M'].width = 5
+        ws.column_dimensions['N'].width = 28
+        ws.column_dimensions['O'].width = 8
+        ws.column_dimensions['P'].width = 8
+        # Rounding
+        rounding_2_numbers_list = [f'C3:C{len(tables_list[0])+2}', f'E3:E{len(tables_list[0])+2}', f'J3:K{len(tables_list[1])+2}', f'O3:P{len(tables_list[2])+2}']
+        rounding_1_numbers_list = [f'D3:D{len(tables_list[0])+2}', f'F3:F{len(tables_list[0])+2}']
+        for color_area in rounding_2_numbers_list:
+            for row in ws[color_area]:
+                for cell in row:
+                    cell.number_format = '0.00'
+        for color_area in rounding_1_numbers_list:
+            for row in ws[color_area]:
+                for cell in row:
+                    cell.number_format = '0.0'
         # close file
         wb.save(Output_file)
         wb.close() 
 
 
-# In[28]:
+# In[12]:
 
 
 ### Отправка письма
@@ -297,14 +324,14 @@ for holding in holding_list:
         mailItem.Send()
 
 
-# In[26]:
+# In[13]:
 
 
 manual_map = BABD_data_work.loc[BABD_data_work['Segment'] == 'External', ['holding', 'buCode']]
 manual_map
 
 
-# In[27]:
+# In[14]:
 
 
 print('The "Limits" was finished')
