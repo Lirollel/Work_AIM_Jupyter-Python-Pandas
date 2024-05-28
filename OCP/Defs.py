@@ -14,6 +14,9 @@
 import pandas as pd
 import numpy as np
 import oracledb
+# from ...Data_bases import Passwords
+# # from Passwords import user_RISKCUSTOM, password_RISKCUSTOM, host_RISKCUSTOM, user_XXWH, password_XXWH, host_XXWH
+# print(Passwords.user_RISKCUSTOM)
 
 # BS, Holding and country by id or sapid
 def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry', 'businessSegmentDetailed']):
