@@ -14,9 +14,10 @@
 import pandas as pd
 import numpy as np
 import oracledb
-# from ...Data_bases import Passwords
-# # from Passwords import user_RISKCUSTOM, password_RISKCUSTOM, host_RISKCUSTOM, user_XXWH, password_XXWH, host_XXWH
-# print(Passwords.user_RISKCUSTOM)
+import sys
+sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Data_bases")
+from Passwords import user_RISKCUSTOM, password_RISKCUSTOM, host_RISKCUSTOM
+from Passwords import user_XXWH, password_XXWH, host_XXWH
 
 # BS, Holding and country by id or sapid
 def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry', 'businessSegmentDetailed']):
@@ -88,7 +89,7 @@ def new_list(df, output_file : str, sheet_name : str, index : bool = False, star
 # Подключение к БД и выгрузка данных по запросу
 def export_from_RISKCUSTOM(query):
     oracledb.init_oracle_client('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Oracle\\instantclient_21_13')
-    connection = oracledb.connect(user="RISKCUSTOM", password="xxRiscRccess174!", host="exatest2-scan.moscow.eurochem.ru", port=1521, service_name='riskdev.moscow.eurochem.ru', disable_oob= True)
+    connection = oracledb.connect(user=user_RISKCUSTOM, password=password_RISKCUSTOM, host=host_RISKCUSTOM, port=1521, service_name='riskdev.moscow.eurochem.ru', disable_oob= True)
     data_export = pd.read_sql(query, con=connection)
     connection.close()
     return data_export
@@ -167,7 +168,7 @@ def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, dat
 
 def export_from_WHWEEK(query):
     oracledb.init_oracle_client('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Oracle\\instantclient_21_13')
-    connection = oracledb.connect(user="XXWH", password="xxwh", host="exatest2-scan.moscow.eurochem.ru", port=1521, service_name='whweek.moscow.eurochem.ru', disable_oob= True)
+    connection = oracledb.connect(user=user_XXWH, password=password_XXWH, host=host_XXWH, port=1521, service_name='whweek.moscow.eurochem.ru', disable_oob= True)
     data_export = pd.read_sql(query, con=connection)
     connection.close()
     return data_export
