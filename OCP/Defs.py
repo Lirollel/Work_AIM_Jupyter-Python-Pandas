@@ -107,16 +107,16 @@ def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, dat
     if date_is_column == False:
         
         df['date'] = DATE
-        df = concat_columns(df, ['date', col_with_CCY]).rename(columns={'concat_columns': 'date_CCY_from'})
-        df = concat_columns(df, ['date', 'CCY_to']).rename(columns={'concat_columns': 'date_CCY_to'})
+        df['date_CCY_from'] = df['date'].astype(str)+'_'+df[col_with_CCY].astype(str)
+        df['date_CCY_to'] = df['date'].astype(str)+'_'+df.CCY_to.astype(str)
 
         Date_SQL_str = "TO_DATE('" + str(DATE) + "', 'YYYY-MM-DD')"
 
     if date_is_column == True:
         
         df[f'{DATE}_str'] = df[DATE].astype(str).str[:10]
-        df = concat_columns(df, [f'{DATE}_str', col_with_CCY]).rename(columns={'concat_columns': 'date_CCY_from'})
-        df = concat_columns(df, [f'{DATE}_str', 'CCY_to']).rename(columns={'concat_columns': 'date_CCY_to'})
+        df['date_CCY_from'] = df[f'{DATE}_str'].astype(str)+'_'+df[col_with_CCY].astype(str)
+        df['date_CCY_to'] = df[f'{DATE}_str'].astype(str)+'_'+df.CCY_to.astype(str)
 
         # Создание списка уникальных дат
         Date_unique_list = df[f'{DATE}_str'].unique().tolist()
@@ -158,6 +158,8 @@ def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, dat
             coef_dict[date_CCY_from] = 1
 
     df[f'Coef_to_{CCY_to}'] = df.date_CCY_from.replace(coef_dict).fillna(0)
+    df[f'Coef_to_{CCY_to}'] = pd.to_numeric(df[f'Coef_to_{CCY_to}'], errors='coerce')
+
     df[f'{col_with_VAL}_in_{CCY_to}'] = df[col_with_VAL] * df[f'Coef_to_{CCY_to}']
 
     df_columns_list.append(f'Coef_to_{CCY_to}')
