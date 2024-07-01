@@ -11,6 +11,8 @@ Coding:
     `jupyter nbconvert --to python Daily_report.ipynb`
     `data.loc[(data > 0.7).any(axis=1)]`
     `ORDER BY ProductId FETCH FIRST 3 ROWS ONLY`
+    ☐ url 
+    ☐ push
 
     Sheets:
         ☐ ARAP
