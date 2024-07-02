@@ -11,8 +11,6 @@ Coding:
     `jupyter nbconvert --to python Daily_report.ipynb`
     `data.loc[(data > 0.7).any(axis=1)]`
     `ORDER BY ProductId FETCH FIRST 3 ROWS ONLY`
-    ☐ url 
-    ☐ push
 
     Sheets:
         ☐ ARAP
@@ -22,19 +20,20 @@ Coding:
         ☐ Invest
             ☐ Data
         ☐ Quantum
-    Invest:
-        new_bd:
-            ☐ sapID
-    ARAP:
-        Comparison_bd:
-            ☐ описание БД
 Reports:
     ☐ Liquidity
-        ☐ EURO-долг
     ☐ Limits
         ☐ TimokhinEV@aimmngt.com
 
 Archive:
+  ✔ матрица для каждого холдинга по столбцам и строкам - в одном порядке все идут - применить ко всем валютам @done(24-07-02 11:49) @project(Coding.ARAP)
+  ✔ EURO-долг @done(24-07-02 09:38) @project(Reports)
+  ✘ sapID @cancelled(24-07-02 09:38) @project(Coding.Invest.new_bd)
+  ✔ маппинг 2 компаний @done(24-07-02 09:36) @project(Coding.ARAP)
+  ✔ валюты в инвестиции и арап @done(24-07-02 09:21) @project(Coding.ARAP)
+  ✘ описание БД @cancelled(24-07-02 09:38) @project(Coding.ARAP.Comparison_bd)
+  ✔ url @done(24-07-01 11:53) @project(Coding)
+  ✔ push @done(24-07-01 11:53) @project(Coding)
   ✔ В UnifiedARReport и в инвестициях иногда встречаются технические валюты, их нужно заменять на нормальные по следующему правилу @done(24-06-24 09:37) @project(Maksim)
   ✔ Для выгрузки из UnifiedARReport нужно добавить сокращённый вариант, где исключить (сгруппировать) наименования контрагентов. Т.е. несколько контрагентов из одного сегмента по одной валюте в один срок должны просуммироваться в одну величину. @done(24-06-24 11:28) @project(Maksim)
   ✔ В дата кволити чеки по UnifiedARReport нужно добавить проверку, все ли sourceSystem мы разбираем. @done(24-06-24 09:07) @project(Maksim)
