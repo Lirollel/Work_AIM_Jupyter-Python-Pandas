@@ -11,7 +11,7 @@ Coding:
     `jupyter nbconvert --to python Daily_report.ipynb`
     `data.loc[(data > 0.7).any(axis=1)]`
     `ORDER BY ProductId FETCH FIRST 3 ROWS ONLY`
-
+OCP:
     Sheets:
         ☐ ARAP
         ☐ Cash
@@ -24,6 +24,20 @@ Reports:
     ☐ Liquidity
     ☐ Limits
         ☐ TimokhinEV@aimmngt.com
+ARAP:
+    ✔ holding to holding @done(24-07-04 11:12)
+    ✔ Compmap and Ctymap in alpabet order @done(24-07-04 11:12)
+    ✔ why external in suek @done(24-07-04 11:53)
+Testing BD:
+    ☐ Нужно потестировать данные по запасам – насколько сходятся данные в табличке в письме ниже с тем, что видно в табличке OPRECConso_detailed с признаком “on hand”.
+    Задача немного творческая – надо сравнить данные и сделать вывод о расхождениях. Если что-то в структуре данных непонятно – спрашивай.
+    Запасы ЕХ загружены на WHWEEK в таблицу "unifiedOcp". Часть, сформированную по сделкам можно найти по условию "sourceTable" = 'flowDealsReportChanges_inventory', запасы на складах "sourceTable" = 'unifiedMaterialMovementSlice_inventory'.
+
+
+    Еще момент, с on hand из OPRECConso_detailed должен сходиться тот срез, который приходит из 'unifiedMaterialMovementSlice_inventory'
+    Обращай внимание на бизнес-единицу и продукт.
+
+    
 
 Archive:
   ✔ матрица для каждого холдинга по столбцам и строкам - в одном порядке все идут - применить ко всем валютам @done(24-07-02 11:49) @project(Coding.ARAP)
