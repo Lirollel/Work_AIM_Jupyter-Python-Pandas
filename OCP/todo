@@ -24,22 +24,19 @@ Reports:
     ☐ Liquidity
     ☐ Limits
         ☐ TimokhinEV@aimmngt.com
-ARAP:
-    ✔ holding to holding @done(24-07-04 11:12)
-    ✔ Compmap and Ctymap in alpabet order @done(24-07-04 11:12)
-    ✔ why external in suek @done(24-07-04 11:53)
-Testing BD:
-    ☐ Нужно потестировать данные по запасам – насколько сходятся данные в табличке в письме ниже с тем, что видно в табличке OPRECConso_detailed с признаком “on hand”.
-    Задача немного творческая – надо сравнить данные и сделать вывод о расхождениях. Если что-то в структуре данных непонятно – спрашивай.
-    Запасы ЕХ загружены на WHWEEK в таблицу "unifiedOcp". Часть, сформированную по сделкам можно найти по условию "sourceTable" = 'flowDealsReportChanges_inventory', запасы на складах "sourceTable" = 'unifiedMaterialMovementSlice_inventory'.
-
-
-    Еще момент, с on hand из OPRECConso_detailed должен сходиться тот срез, который приходит из 'unifiedMaterialMovementSlice_inventory'
-    Обращай внимание на бизнес-единицу и продукт.
-
-    
 
 Archive:
+  ✔ нужно по каждому из 8 продуктов (значения в поле PRODUCT NAME) посчитать волатильность изменения цены. @done(24-07-09 09:00) @project(Volatility)
+  ✔ Для каждого продукта цену публикуют агентства (поле INFO_SOURCE). Цена продукта - это средняя цена из всех, опубликованных агентствами в конкретную неделю. Если какое-то агентство цену не опубликовало, то в расчёте средней цены не участвует. @done(24-07-08 15:30) @project(Volatility)
+  ✔ Волатильность нужно посчитать по данным за весь период (с 2010 года), @done(24-07-09 09:00) @project(Volatility)
+  ✔ за последние 5 лет, @done(24-07-09 09:00) @project(Volatility)
+  ✔ за последние 3 года, и @done(24-07-09 09:00) @project(Volatility)
+  ✔ за последний год. @done(24-07-09 09:00) @project(Volatility)
+  ✔ если цена по модулю отличается больше чем на 70% @done(24-07-05 15:48) @project(Testing BD)
+  ✔ why external in suek @done(24-07-04 11:53) @project(ARAP)
+  ✔ Нужно потестировать данные по запасам – насколько сходятся данные в табличке в письме ниже с тем, что видно в табличке OPRECConso_detailed с признаком “on hand”. @done(24-07-08 15:25) @project(Testing BD)
+  ✔ holding to holding @done(24-07-04 11:12) @project(ARAP)
+  ✔ Compmap and Ctymap in alpabet order @done(24-07-04 11:12) @project(ARAP)
   ✔ матрица для каждого холдинга по столбцам и строкам - в одном порядке все идут - применить ко всем валютам @done(24-07-02 11:49) @project(Coding.ARAP)
   ✔ EURO-долг @done(24-07-02 09:38) @project(Reports)
   ✘ sapID @cancelled(24-07-02 09:38) @project(Coding.Invest.new_bd)
