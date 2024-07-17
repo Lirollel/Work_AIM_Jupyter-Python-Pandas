@@ -22,21 +22,26 @@ from Passwords import user_XXWH, password_XXWH, host_XXWH
 # BS, Holding and country by id or sapid
 def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry', 'businessSegmentDetailed']):
 
-    data = export_from_RISKCUSTOM(f"""select "{id_col}", "oebs12ShortCode", "{merge_col}" from "RISKACCESS"."mdgSalesUnits" """)
+    data = export_from_RISKCUSTOM(f"""select "{id_col}", "oebs12ShortCode", "sapId", "{merge_col}" from "RISKACCESS"."mdgSalesUnits" """)
     # data = data[[id_col,'oebs12ShortCode', merge_col]]
-    data_id_col = data.dropna(subset=id_col).drop_duplicates(subset=id_col)
-    data_oebs12ShortCode = data.dropna(subset='oebs12ShortCode').drop_duplicates(subset='oebs12ShortCode')
+    id_cols_list = [f"{id_col}", "oebs12ShortCode", "sapId"]
+    id_cols_dict = {}
+    for id_colmn in id_cols_list:
+        data_id_col = 0
+        data_id_col = data.dropna(subset=id_colmn).drop_duplicates(subset=id_colmn)
+        id_cols_dict[id_colmn] = data_id_col
 
     df = df.reset_index(drop=True)
 
     # merge_data = df.merge(data, how='left', left_on=col, right_on=id_col, validate='many_to_one').iloc[:, -1].fillna('External')
     merge_data = df
-    merge_data[f'{id_col}_merge'] = df.merge(data_id_col, how='left', left_on=col, right_on=id_col, validate='many_to_one').iloc[:, -1].fillna('External')
-    merge_data['oebs12ShortCode_merge'] = df.merge(data_oebs12ShortCode, how='left', left_on=col, right_on='oebs12ShortCode', validate='many_to_one').iloc[:, -1].fillna('External')
+    for id_colmn in id_cols_list:
+        merge_data[f'{id_colmn}_merge'] = df.merge(id_cols_dict[id_colmn], how='left', left_on=col, right_on=id_colmn, validate='many_to_one').iloc[:, -1].fillna('External')
 
     merge_data['last_merge'] = np.NaN
-    merge_data.loc[merge_data[f'{id_col}_merge'] != 'External', 'last_merge'] = merge_data.loc[merge_data[f'{id_col}_merge'] != 'External', f'{id_col}_merge']
-    merge_data.loc[merge_data[f'{id_col}_merge'] == 'External', 'last_merge'] = merge_data.loc[merge_data[f'{id_col}_merge'] == 'External', 'oebs12ShortCode_merge']
+    for id_colmn in id_cols_list:
+        merge_data.loc[merge_data[f'{id_colmn}_merge'] != 'External', 'last_merge'] = merge_data.loc[merge_data[f'{id_colmn}_merge'] != 'External', f'{id_colmn}_merge']
+    merge_data['last_merge'] = merge_data['last_merge'].fillna('External')
     merge_data = merge_data['last_merge']
 
     return merge_data
