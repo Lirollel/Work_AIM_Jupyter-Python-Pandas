@@ -29,11 +29,17 @@ OCP:
 Reports:
     ☐ Liquidity
     ☐ Limits
+        ☐ 3 reports
+            ✔ segment to table @done(24-07-24 12:22)
+            ✔ hide cols with segmentd @done(24-07-24 12:54)
+            ✔ format from list data @done(24-07-24 13:31)
+            ☐ screens for fields if longer then 
         ☐ TimokhinEV@aimmngt.com
-Max:
-    ☐ 
-
+    
 Archive:
+  ✔ Кэш по Еврохиму: у тебя откуда-то получился отрицательный impairment. Экономический смысл этой величины – обесценение. Т.е. дисконтирование стоимости, в результате которого получается меньшее число. @done(24-07-23 09:59) @project(Max)
+  ✔ Сделай пожалуйста расчёт сходимости встречных требований по ARAP – как в последний раз, в расширенном виде, по каждой валюте отдельно, с фиксированным списком бизнес-сегментов. @done(24-07-23 09:25) @project(Max)
+  ✔ Сделай пожалуйста аналогичное упражнение по сходимости встречных для долга СУЭКа из SAP. @done(24-07-23 09:25) @project(Max)
   ✔ column @done(24-07-17 13:45) @project(OCP.Sheets)
   ✔ new triggers c 1 jul @done(24-07-17 13:01) @project(Liquidity)
   ✔ eurocheem conditions @done(24-07-17 09:45) @project(OCP.Sheets)
