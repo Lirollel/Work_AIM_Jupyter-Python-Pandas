@@ -16,7 +16,7 @@ Coding:
     `jupyter nbconvert --to python Daily_report.ipynb`
     `data.loc[(data > 0.7).any(axis=1)]`
     `ORDER BY ProductId FETCH FIRST 3 ROWS ONLY`
-    ☐ loval mins scipy
+    ☐ local mins scipy
 OCP:
     Sheets:
         ☐ ARAP
@@ -30,13 +30,28 @@ Reports:
     ☐ Liquidity
     ☐ Limits
         ☐ 3 reports
-            ✔ segment to table @done(24-07-24 12:22)
-            ✔ hide cols with segmentd @done(24-07-24 12:54)
-            ✔ format from list data @done(24-07-24 13:31)
-            ☐ screens for fields if longer then 
+            ☐ Max - EUROPE
         ☐ TimokhinEV@aimmngt.com
     
 Archive:
+  ✔ date of row @done(24-07-26 13:41) @project(OCP.Sheets)
+  ✔ new mail depart @done(24-07-26 08:46) @project(Reports)
+  ✔ new format @done(24-07-26 08:27) @project(Reports)
+  ✔ peoples @done(24-07-26 08:32) @project(Reports)
+  ✔ плюс, нужно прочекать контрагента по наименованию по нашему справочнику - есть ли внутригрупповые истории? @done(24-07-25 14:07) @project(OCP.Sheets)
+  ✔ и добавить поле для сегмента контрагента @done(24-07-25 14:07) @project(OCP.Sheets)
+  ✔ ну да, там же каждая строчка должна относиться к какой-то валюте... @done(24-07-25 14:03) @project(OCP.Sheets)
+  ✔ Плюс, мне нужен бизнес-сегмент (смэтчить из Sales units) @done(24-07-25 14:12) @project(OCP.Sheets)
+  ✔ 2)	Также, для ветвлений в эксельнике, который прилагается к файле, оставить только табличку с банками и лимитами. Остальные страницы убрать. @done(24-07-25 13:02) @project(Reports)
+  ✔ 3)	Всё еще есть недочёты в данных, например вот: @done(24-07-25 12:52) @project(Reports)
+  ✔ count of rows @done(24-07-25 08:54) @project(OCP.Sheets)
+  ✔ format @done(24-07-25 14:30) @project(OCP.Sheets)
+  ✔ Max @done(24-07-25 08:53) @project(Reports)
+  ✔ 1)	Для ветвлений нужно оставить только табличку с банками. А с группировкой по странам и сегментам нужно убрать. @done(24-07-25 12:53) @project(Reports)
+  ✔ format from list data @done(24-07-24 13:31) @project(Reports)
+  ✔ screens for fields if longer then @done(24-07-24 13:46) @project(Reports)
+  ✔ segment to table @done(24-07-24 12:22) @project(Reports)
+  ✔ hide cols with segmentd @done(24-07-24 12:54) @project(Reports)
   ✔ Кэш по Еврохиму: у тебя откуда-то получился отрицательный impairment. Экономический смысл этой величины – обесценение. Т.е. дисконтирование стоимости, в результате которого получается меньшее число. @done(24-07-23 09:59) @project(Max)
   ✔ Сделай пожалуйста расчёт сходимости встречных требований по ARAP – как в последний раз, в расширенном виде, по каждой валюте отдельно, с фиксированным списком бизнес-сегментов. @done(24-07-23 09:25) @project(Max)
   ✔ Сделай пожалуйста аналогичное упражнение по сходимости встречных для долга СУЭКа из SAP. @done(24-07-23 09:25) @project(Max)
