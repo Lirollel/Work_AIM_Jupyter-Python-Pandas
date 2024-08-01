@@ -29,11 +29,11 @@ OCP:
 Reports:
     ☐ Liquidity
     ☐ Limits
-        ☐ 3 reports
-            ☐ Max - EUROPE
         ☐ TimokhinEV@aimmngt.com
     
 Archive:
+  ✔ 3 reports @done(24-07-29 09:18) @project(Reports)
+  ✔ Max - EUROPE @done(24-07-29 09:17) @project(Reports)
   ✔ date of row @done(24-07-26 13:41) @project(OCP.Sheets)
   ✔ new mail depart @done(24-07-26 08:46) @project(Reports)
   ✔ new format @done(24-07-26 08:27) @project(Reports)
