@@ -30,7 +30,14 @@ Reports:
     ☐ Liquidity
     ☐ Limits
         ☐ TimokhinEV@aimmngt.com
-    
+Maksim:
+    ✔ 1)	Посмотреть на 30.06.2024 запасы Еврохима на сходимость в двух источниках: @done(24-08-02 13:18)
+        ECConso (rowtype=onhand).
+        Unified OCP ("sourceTable" = 'unifiedMaterialMovementSlice_inventory')
+                     В разрезе бизнес-единиц и продуктов
+    ☐ 2)	Поискать данные для цен на уголь API8, ICI4, API2 и NEWC в базе UMDAP, и поисследовать насчёт корреляции в разные периоды.
+
+        
 Archive:
   ✔ 3 reports @done(24-07-29 09:18) @project(Reports)
   ✔ Max - EUROPE @done(24-07-29 09:17) @project(Reports)
