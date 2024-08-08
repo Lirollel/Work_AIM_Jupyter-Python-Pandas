@@ -38,7 +38,7 @@ def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment',
     for id_colmn in id_cols_list:
         merge_data[f'{id_colmn}_merge'] = df.merge(id_cols_dict[id_colmn], how='left', left_on=col, right_on=id_colmn, validate='many_to_one').iloc[:, -1].fillna('External')
 
-    merge_data['last_merge'] = np.NaN
+    merge_data['last_merge'] = np.nan
     for id_colmn in id_cols_list:
         merge_data.loc[merge_data[f'{id_colmn}_merge'] != 'External', 'last_merge'] = merge_data.loc[merge_data[f'{id_colmn}_merge'] != 'External', f'{id_colmn}_merge']
     merge_data['last_merge'] = merge_data['last_merge'].fillna('External')
