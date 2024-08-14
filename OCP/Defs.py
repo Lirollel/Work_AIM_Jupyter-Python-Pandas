@@ -10,6 +10,8 @@
 # from Defs import add_in_currency_column
 # from Defs import concat_columns
 # from Defs import export_from_WHWEEK
+# from Defs import CCY_tech_dict
+# from Defs import is_approximately_equal
 
 import pandas as pd
 import numpy as np
@@ -105,7 +107,7 @@ def concat_columns(df: pd.DataFrame, columns: list):
     return df
 
 # Создание столбца в нужной валюте
-CCY_tech_dict = {'RUC':'CHF','RUE':'EUR','RUE2':'EUR','RUE3':'EUR','RUE5':'EUR','RUG':'GBP','RUJ':'JPY','RUK':'KZT','RUM':'MDL','RUU':'USD','RUU1':'USD','RUU1R':'USD','RUU2':'USD','RUU25':'USD','RUU26':'USD','RUU3':'USD','RUU5':'USD','RUY':'CNY','RUK5':'KZT','RUY3':'CNY','RUY5':'CNY'}
+CCY_tech_dict = {'RUC':'CHF','RUE':'EUR','RUE2':'EUR','RUE3':'EUR','RUE5':'EUR','RUG':'GBP','RUJ':'JPY','RUK':'KZT','RUM':'MDL','RUU':'USD','RUU1':'USD','RUU1R':'USD','RUU2':'USD','RUU25':'USD','RUU26':'USD','RUU3':'USD','RUU5':'USD','RUY':'CNY','RUK5':'KZT','RUY3':'CNY','RUY5':'CNY', 'RUI':'INR'}
 def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, date_is_column: bool, col_with_VAL: str, DATE: str = 'YYYY-MM-DD'):
     df_columns_list = df.columns.tolist()
     df['CCY_to'] = CCY_to
@@ -182,4 +184,8 @@ def export_from_WHWEEK(query):
     connection.close()
     return data_export
 
-
+def is_approximately_equal(x,y,tolerance=0.001):
+    # tolerance - persentage of differences in max value
+    if x==y:
+        return True
+    return abs((x-y)/max(abs(x), abs(y))) <=tolerance
