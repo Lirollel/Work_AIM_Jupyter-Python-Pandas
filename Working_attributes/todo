@@ -3,28 +3,24 @@
 'Alt+C' // Triggers `Todo: Toggle Cancelled`
 'Alt+S' // Triggers `Todo: Toggle Start`
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
+
 @today @critical @high @low
 
 Coding:
-    ☐ Функция валют для столбца и строки
-        ☐ проверка столбца даты на соответсвие типу даты
-    ☐ функция проверки качества данных
-        ☐ кол-во дубликатов
-        ☐ кол-во нулев
-        ☐ типы столбцов и данные ли там только этого типа 
-        ☐ ? данные в пределах ожидаемых значений - без выбросов 
+    Useful_code:
+    ☐ Useful code
     `jupyter nbconvert --to python Daily_report.ipynb`
     `data.loc[(data > 0.7).any(axis=1)]`
     `ORDER BY ProductId FETCH FIRST 3 ROWS ONLY`
     `select table_name from ALL_TABLES`
     `PERIOD >= ADD_MONTHS(SYSDATE, -3)`
-    ☐ вынести функции, испорты и словари в отдельный репозиторий, внести его в паф
-        ☐ defs
-        ☐ Imports
-        ☐ passwords
-        ☐ ccy_mapping
-        ☐ currency
-        ☐ mapping
+    How to check data before work:
+        ☐ duplicates count
+        ☐ nulls or NANs count
+            ☐ full nulls, if need
+        ☐ cols types, types errors in data 
+        ☐ outliers, data within expected values
+
 OCP:
     Sheets:
         ☐ ARAP
@@ -34,28 +30,44 @@ OCP:
         ☐ Invest
             ☐ Data
         ☐ Quantum
+    Compairing:
+        ☐ Alert files
+        ☐ ARAP
+
 Reports:
     ☐ Liquidity
     ☐ Limits
         ☐ TimokhinEV@aimmngt.com
-Maksim:
+
+Daily_tasks:
     ☐ 2)	Поискать данные для цен на уголь API8, ICI4, API2 и NEWC в базе UMDAP, и поисследовать насчёт корреляции в разные периоды.
         ☐ добавить периоды в дф и построить графики относительно них
-    ✔ Запусти пожалуйста расчёт OCP за 31.07.2024 @done(24-08-13 10:00)
-    ✔ Плюс сверки встречных в разбивке по валютам для долга и ARAP - как обычно @done(24-08-13 09:02)
-        ☐ сравнение данных с предыдущим месяцем
-        ☐ срипт на проверку текущей с предыдущей для всех 
-            ✔ кол-во строк для холдингов отдельно @done(24-08-14 10:12)
-            ✔ создание словаря под каждый файл, где напротив названия идут 2 даты, потом дф с кол-вом строк, солбцов, числом нулей, суммой @done(24-08-14 10:12)
-            ✔ сравнить типы, суммы, нули, число строк и столбцов @done(24-08-14 11:17)
-            ✔ вывести ошибки в отдельный файл @done(24-08-14 14:27)
-            ✔ названия листов для чтения @done(24-08-14 10:54)
-            ☐ проверить правильно ли сравниваются параметры в общей дате 
-            ☐ проверить ложные файлы
-            ☐ проверить арап
-            
+    ☐ fix bank limits
     
 Archive:
+  ✔ Функция валют для столбца и строки @done(24-08-15 11:41) @project(Coding)
+  ✘ проверка столбца даты на соответсвие типу даты @cancelled(24-08-15 11:41) @project(Coding)
+  ✔ вынести функции, испорты и словари в отдельный репозиторий, внести его в паф @done(24-08-15 11:38) @project(Coding)
+  ✔ defs @done(24-08-15 11:20) @project(Coding)
+  ✔ Imports @done(24-08-15 11:20) @project(Coding)
+  ✔ passwords @done(24-08-15 11:20) @project(Coding)
+  ✔ ccy_mapping @done(24-08-15 11:21) @project(Coding)
+  ✘ currency @cancelled(24-08-15 11:35) @project(Coding)
+  ✔ mapping @done(24-08-15 11:21) @project(Coding)
+  ✔ change path in defs @done(24-08-15 11:35) @project(Coding)
+  ✔ add to path @done(24-08-15 11:38) @project(Coding)
+  ✔ Запусти пожалуйста расчёт OCP за 31.07.2024 @done(24-08-13 10:00) @project(Maksim)
+  ✔ Плюс сверки встречных в разбивке по валютам для долга и ARAP - как обычно @done(24-08-13 09:02) @project(Maksim)
+  ✔ сравнение данных с предыдущим месяцем @done(24-08-15 11:03) @project(Maksim)
+  ✔ срипт на проверку текущей с предыдущей для всех @done(24-08-15 11:03) @project(Maksim)
+  ✔ кол-во строк для холдингов отдельно @done(24-08-14 10:12) @project(Maksim)
+  ✔ создание словаря под каждый файл, где напротив названия идут 2 даты, потом дф с кол-вом строк, солбцов, числом нулей, суммой @done(24-08-14 10:12) @project(Maksim)
+  ✔ сравнить типы, суммы, нули, число строк и столбцов @done(24-08-14 11:17) @project(Maksim)
+  ✔ вывести ошибки в отдельный файл @done(24-08-14 14:27) @project(Maksim)
+  ✔ названия листов для чтения @done(24-08-14 10:54) @project(Maksim)
+  ✔ проверить правильно ли сравниваются параметры в общей дате @done(24-08-15 11:03) @project(Maksim)
+  ✔ проверить ложные файлы @done(24-08-15 11:01) @project(Maksim)
+  ✔ проверить арап @done(24-08-15 10:41) @project(Maksim)
   ✔ new if @done(24-08-09 08:39) @project(OCP.Sheets)
   ✔ 1)	Для БЕ из holding = Eurochem: @done(24-08-09 08:39) @project(OCP.Sheets)
   ✔ 2)	Для БЕ из holding = SUEK: @done(24-08-09 08:39) @project(OCP.Sheets)

@@ -1,25 +1,13 @@
 
-
-# import sys
-# sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP")
-# from Defs import merge_SalesUnits
-# from Defs import merge_Mapping
-# from Defs import Period
-# from Defs import new_list
-# from Defs import export_from_RISKCUSTOM
-# from Defs import add_in_currency_column
-# from Defs import concat_columns
-# from Defs import export_from_WHWEEK
-# from Defs import CCY_tech_dict
-# from Defs import is_approximately_equal
-
 import pandas as pd
 import numpy as np
 import oracledb
 import sys
-sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Data_bases")
-from Passwords import user_RISKCUSTOM, password_RISKCUSTOM, host_RISKCUSTOM
-from Passwords import user_XXWH, password_XXWH, host_XXWH
+sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes")
+from BD_passwords import user_RISKCUSTOM, password_RISKCUSTOM, host_RISKCUSTOM
+from BD_passwords import user_XXWH, password_XXWH, host_XXWH
+
+
 
 # BS, Holding and country by id or sapid
 def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment', 'holding', 'registryCountry', 'businessSegmentDetailed']):

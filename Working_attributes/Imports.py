@@ -1,5 +1,10 @@
+# import sys
+# sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes")
+# from Imports import * 
+
+
 import sys
-sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP")
+sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes")
 from Defs import merge_SalesUnits
 from Defs import merge_Mapping
 from Defs import Period
