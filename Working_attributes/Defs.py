@@ -38,8 +38,8 @@ def merge_SalesUnits(df, col, id_col: str ='id', merge_col: str = ['ocpSegment',
 
 # id by CompName
 def merge_Mapping(df, col):
-
-    data = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\Методология\\Mapping.csv')
+    
+    data = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes\\Mapping.csv')
     data = data.dropna(subset='CompName').drop_duplicates(subset='CompName')
 
     df = df.reset_index(drop=True)
@@ -123,7 +123,7 @@ def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, dat
     # Создание списка уникальных валют
     CCY_unique_list = df[col_with_CCY].unique().tolist()
     CCY_variations_list = [f"{CCY_to}/" + str(x) for x in CCY_unique_list] + [str(x) + f"/{CCY_to}" for x in CCY_unique_list]
-    data_CCY_map = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\OCP\\Методология\\CCY_mapping.csv')
+    data_CCY_map = pd.read_csv('C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes\\CCY_mapping.csv')
     CCY_id_unique_list = data_CCY_map[data_CCY_map.CCY.isin(CCY_variations_list)].id.unique().tolist()
     CCY_id_unique_str = str(CCY_id_unique_list)[1:-1]
 
