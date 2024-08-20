@@ -3,6 +3,7 @@
 # from Imports import * 
 
 
+
 import sys
 sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes")
 from Defs import merge_SalesUnits
@@ -14,7 +15,8 @@ from Defs import add_in_currency_column
 from Defs import concat_columns
 from Defs import export_from_WHWEEK
 from Defs import CCY_tech_dict
-from Defs import is_approximately_equal
+from Defs import is_approximately_equal_for_cols
+from Defs import holding_list
 
 
 import pandas as pd

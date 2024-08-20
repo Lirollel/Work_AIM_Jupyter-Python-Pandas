@@ -172,8 +172,22 @@ def export_from_WHWEEK(query):
     connection.close()
     return data_export
 
-def is_approximately_equal(x,y,tolerance=0.001):
+def is_approximately_equal_for_cols(df: pd.DataFrame, col_1:str ,col_2:str , tolerance=0.4, print_diff=False):
     # tolerance - persentage of differences in max value
-    if x==y:
-        return True
-    return abs((x-y)/max(abs(x), abs(y))) <=tolerance
+
+    name_diff_col = f'Diff_more_{tolerance}'
+    df[name_diff_col] = np.nan
+    #compaire values
+    max_value = df[[col_1, col_2]].abs().max(axis=1)
+    diff = abs(df[col_1].abs()-df[col_2].abs())
+    df[name_diff_col] = (diff/max_value)>=tolerance
+    # if cols equal
+    df.loc[df[col_1]==df[col_2], name_diff_col] = False
+    # print diff
+    if print_diff==True:
+        df['Diff'] = diff
+    
+    return df
+
+
+holding_list = ['EUROCHEM', 'SUEK']
