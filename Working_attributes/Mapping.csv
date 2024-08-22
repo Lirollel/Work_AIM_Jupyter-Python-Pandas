@@ -558,7 +558,6 @@ EuroChem Agro doo Beograd-Novi Beograd,RSAGR
 "(удален)АО ""Разрез Назаровский""",2N00
 "ООО ""Алтай-СУЭК""",4900
 SUEK Singapore Trading Pte. Ltd.,7I00
-"АО ""КФС-Транс""",BCS-1Q01
 "ООО ""ЕвроХим-Белореченск""",RUEBE
 "ООО ""ЕВРОХИМ ДАЛЬНИЙ ВОСТОК""",RUFET
 "Филиал АО ""НАК ""Азот"" Новомосковская ГРЭС",RUNAK
@@ -666,7 +665,6 @@ BRHRG,BRHRG
 1600,1600
 7I00,7I00
 BRSFT,BRSFT
-RUEMO,RUEMO
 RURBZ,RURBZ
 1W00,1W00
 V800,V800
@@ -774,7 +772,6 @@ RUDNM,RUDNM
 RUDKR,RUDKR
 TREAF,TREAF
 UAAGR,UAAGR
-IEFIN,IEFIN
 RUTOM,RUTOM
 RUTON,RUTON
 KZKAM,KZKAM
@@ -834,32 +831,466 @@ ILPRO,ILPRO
 AEMNG,AEMNG
 RUBND,RUSBO
 "ООО ""Управление по буровзрывным работам""",4U00
-ООО "Германий и приложения",BCS-1J01
-АО ГХК "Ушгер",KZUSH
-ТОО "ЕвроХим-Удобрения",KZUDB
-ТОО "Герес-Удобрения",KZGER
-ООО "РУСБОНД-ЕВРОХИМ",RUSBO
-ООО"ЕвроХим Трейдинг Рус",RUESM
-ООО "ЕВРОХИМ ТРАКС",RUTRU
-ООО "Тонус-плюс",RUTON
-ООО "СП Ковдорский",RUSPK
-(удален)ООО "Урал-ремстройсервис",RURBZ
+"ООО ""Германий и приложения""",BCS-1J01
+"АО ГХК ""Ушгер""",KZUSH
+"ТОО ""ЕвроХим-Удобрения""",KZUDB
+"ТОО ""Герес-Удобрения""",KZGER
+"ООО ""РУСБОНД-ЕВРОХИМ""",RUSBO
+"ООО""ЕвроХим Трейдинг Рус""",RUESM
+"ООО ""ЕВРОХИМ ТРАКС""",RUTRU
+"ООО ""Тонус-плюс""",RUTON
+"ООО ""СП Ковдорский""",RUSPK
+"(удален)ООО ""Урал-ремстройсервис""",RURBZ
 EUROCHEM COMERCIO DE PRODUTOS,BRCPQ
 EUROCHEM COMERCIO DE PRODUTOS QUIMI,BRCPQ
 EuroChem Finance Designated Activity Company,IEFIN
 EUROCHEM LOUISIANA LLC,USELO
 FERTILIZANTES TOCANTINS S/A,BRFTO
 SUEK RU,1100
-(удален) ООО "Черновский РМЗ",3900
-АО "Ургалуголь" Разрез Правобережный",6700
+"(удален) ООО ""Черновский РМЗ""",3900
+"АО ""Ургалуголь"" Разрез Правобережный""",6700
 FERTILIZANTES HERINGER SA,BRHRG
 FERTILIZANTES HERINGER S A,BRHRG
-JSC "MCC "EuroСhem",RUEMO
+"JSC ""MCC ""EuroСhem""",RUEMO
 Разрез Тугнуйский АО,3D00
-ООО "СУЭК-ХАКАСИЯ",4F00
+"ООО ""СУЭК-ХАКАСИЯ""",4F00
 FERTILIZANTES TOCANTINS S A,BRFTO
-ООО "БГТК",9T00
+"ООО ""БГТК""",9T00
 EuroChem Trading Middle East FZE,AETRD
 FERTILIZANTES TOCANTINS LTDA,BRFTO
 "EUROCHEM - USOLSKY POTASH COMPLEX, LIMITED LIABILITY COMPANY",RUKUS
-ООО "ЕвроХим Северный Кавказ",RUNCA
+"ООО ""ЕвроХим Северный Кавказ""",RUNCA
+"АО ""СГК - Алтай""",W100
+"АО ""СГК - Новосибирск""",Y100
+АО "СГК-Новосибирск",Y100
+"Y100""(УДАЛЕН)АО """"РАЗРЕЗ НАЗАРОВСКИЙ""""""",2N00
+"AGROCENTER EUROCHEM KAZAKHSTAN, LLP",KZAGR
+AGROCENTER EUROCHEM SRL,MDAGR
+AGROCENTER EUROCHEM-KAZAKHSTAN LLP,KZAGR
+AGROCENTER HOLDING B.V.,NLAGH
+"AO ""EUROСHEM-NW""",RUESZ
+"AO ""EUROСHEM-SZ""",RUESZ
+"AO ""Kovdorsky GOK""",RUKGK
+"AO ""NAK ""AZOT""",RUNAK
+"AO ""NEVINNOMYSSKY AZOT""",RUNEV
+AO SUEK-KRASNOYARSK,2100
+"AZOT, JSC",RUNAK
+AZOTTECH (EC),RUAZT
+BARTER COAL SP. Z O.O.,BCS-7B00
+BARTER COAL SP.Z.O.O.,BCS-7B00
+BLACK SAND COMMODITIES,7B00
+BRCPQ EC COM PROD QUIM,BRCPQ
+BRSFT SALITRE FERTILIZANT,BRSFT
+CORRIGO FERTILIZERS LLC,AECOR
+EC AGRO MOLDOVA (EC),MDAGR
+EC AGRO SINGAPORE (EC),SGEAA
+EC FINANCE DAC (EC),IEFIN
+EC NORTH CAUCASUS (EC),RUNCA
+EC TRADING ME (EC),AETRD
+ECNW-3 (EC),RUENW
+EIH (EC),NLEIH
+EMERGER FERTILIZANTES (EC),AREFO
+EUROCHEM AGRICULTURAL TRADING HELLAS SA,GREAH
+EUROCHEM AGRO BULGARIA EAD,BGAGR
+EUROCHEM AGRO DOO BELGRAD,RSAGR
+EUROCHEM AGRO FERTILIZER TRADE LLP,TREAF
+EUROCHEM AGRO HELLAS AE,GREAH
+EUROCHEM AGRO HELLAS SA,GREAH
+EUROCHEM AGRO HUNGARY KFT.,HUAGR
+EUROCHEM AGRO IBERIA SL,ESEAI
+"EUROCHEM AGRO IBERIA, SL",ESEAI
+EUROCHEM AGRO MÉXICO SA DE CV,MXEAM
+"EUROCHEM AGRO TRADING (SHENZHEN) CO., LTD.",CNEAT
+EUROCHEM ANTWERPEN N.V.,BEANF
+EUROCHEM ANTWERPEN OFP,BEANF
+EUROCHEM COMERCIO DE PRODUTOS QUIMI LTDA,BRCPQ
+EUROCHEM FERTILIZERS LLP,KZUDB
+EUROCHEM FINANCE DAC,IEFIN
+EUROCHEM GROUP AG (DWTCA BRANCH),CHTRD
+EUROCHEM GROUP AG (FORMER EUROCHEM TRADING GMBH),CHTRD
+EUROCHEM GROUP AG TRADING,CHETD
+EUROCHEM GROUP TRADING,CHETD
+EUROCHEM GROUP UAE BRANCH,AEEAG
+"EUROCHEM KARATAU, LLP",KZKRT
+EUROCHEM LATAM,LULAT
+EUROCHEM LATAM AMERICA S.À R.L.,LULAT
+EUROCHEM LATAM SÀRL,LULAT
+"EUROCHEM LOGISTICS INTERNATIONAL, UAB",LTEBL
+EUROCHEM MANAGEMENT MIDDLE EAST FZE,AEMNG
+EUROCHEM MCC - RUMKR,RUEMO
+EUROCHEM MCC - RUMKU,RUEMO
+EUROCHEM MCC - RUMLI,RUEMO
+EUROCHEM MCC - RUMNE,RUEMO
+EUROCHEM MCC - RUMNM,RUEMO
+EUROCHEM NORTH AMERICA (EC),USBFC
+EUROCHEM NORTH AMERICA CORP.,USBFC
+"EUROCHEM NORTHWEST2, LLC",RUESZ
+EUROCHEM POLSKA SP. Z O.O.,PLAGR
+EUROCHEM TERMINAL SILLAMÄE OSAÜHING,EETNK
+EUROCHEM TRADING MIDDLE EAST,AETRD
+EUROCHEM TRADING USA,USTRD
+EUROCHEM USA (EC),USEUS
+"EUROCHEM USA, LLC",USEUS
+EUROCHEM-KARATAU (EC),KZKRT
+EUROCHEMTRADING ME DMCC,AETRD
+EUROСHEM AGRO GMBH,DEEAG
+"EuroСhem-UPC, LLC",RUKUS
+FERCO - CYPRUS,S300
+FERCO - MOSCOW,S400
+FERTILIZANTES HERINGER,BRHRG
+FERTILIZANTES TOCANTINS (EC),BRFTO
+GERES UDOBRENIYA LLP,KZGER
+GREENFIN LLC,2800
+HARVESTER SHIPMANAGEMENT LTD.,CYHAR
+IC NORD HARVEST HOLDING LLC,RUAIM
+IC SUEK LTD LLC,SPLC
+IRON MARITIME,LRIRM
+"JOINT STOCK COMPANY ""NATIONAL TRANSPORT COMPANY""",1N00
+"JSC ""Euroсhem-NW""",RUESZ
+"JSC ""KUZBASSENERGO""",U100
+"JSC ""NAK ""AZOT""",RUNAK
+"JSC ""NEVINNOMYSSKY AZOT""",RUNEV
+"JSC ""RAZREZ KHARANORSKY""",3200
+"JSC ""YENISEI TGC (TGC-13)""",V100
+JSC DALTRANSUGOL,8200
+JSC MURMANSK COMMERCIAL SEAPORT,9200
+JSC SUEK,1100
+JSC SUEK-KUZBASS,5N00
+JSC TUGNUISKY OPENCAST MINE,3D00
+JSC URGALUGOL,6700
+"KABUI SHANGHAI TRADING CO., LTD",AEKBU
+KHABAROVSK-SUEK LLC,6600
+KOVDORSKII GOK,RUKGK
+LIFOSA AB,LTLIF
+"LIMITED LIABILITY COMPANY ""PACIFIC TRUST MARINE""",9G00
+"LLC ""ARKTICHESKIE RAZRABOTKI""",1600
+"LLC ""ATLANTIC TRUST MARINE""",9F00
+"LLC ""EUROСHEM-UKK""",RUKUS
+"LLC ""EUROСHEM-VOLGAKALIY""",RUVGK
+"LLC ""EuroChem-UPC"",",RUKUS
+"LLC ""EuroСhem-UPC""",RUKUS
+"LLC ""PG ""FOSFORIT""",RUFSF
+"LLC ""PRIMORSKUGOL""",6100
+"LLC ""STEM CONSULTING""",1I00
+"LLC ""VOSTOCHNO-BEYSKY OPENCAST MINE""",4100
+LLC SUEK-KHAKASIA,4F00
+"MASKO, JSC",9H00
+MCC (EC),RUEMO
+MCC EUROCHEM JSC,RUEMO
+MURMANSK BULKCARGO TERMINAL LLC,RUMGT
+NAKA (EC),RUNAK
+"OOO ""NOVOMOSKOVSKY CHLOR""",RUNCL
+PROTECH ISRAEL,ILPRO
+PROTECH PHOSPHATE RESEARCH INSTITUT LTD,RUPTL
+PT SUEK TRADE INDONESIA,7N00
+PT. Suek Trading Indonesia,7N00
+RUEMO - ОСП БЕЛГОРОД,RUEMO
+RUEMO - ОСП ВОЛГОГРАД,RUEMO
+RUEMO - ОСП ВОРОНЕЖ,RUEMO
+RUEMO - ОСП КИНГИСЕПП,RUEMO
+RUEMO - ОСП КРАСНОДАР,RUEMO
+RUEMO - ОСП КУРСК,RUEMO
+RUEMO - ОСП ЛИПЕЦК,RUEMO
+RUEMO - ОСП НЕВИННОМЫССК,RUEMO
+RUEMO - ОСП НОВОМОСКОВСК,RUEMO
+RUEMO - ОСП ОРЕЛ,RUEMO
+RUEMO - ОСП РОСТОВ НА ДОНУ,RUEMO
+RUESM - ОСП ВОЛГОГРАД,RUESM
+RUESM - ОСП ЛИПЕЦК,RUESM
+RUESM - ОСП НЕВИННОМЫССК,RUESM
+RUESM - ОСП НОВОМОСКОВСК,RUESM
+RUESM - ОСП РОСТОВ НА ДОНУ,RUESM
+RUESM -ОСП ВОРОНЕЖ,RUESM
+RUESM -ОСП КИНГИСЕП,RUESM
+RUESM -ОСП КРАСНОДАР,RUESM
+RUESM -ОСП ОРЕЛ,RUESM
+SALITRE FERTILIZANTES LTDA.,BRSFT
+SARY-TAS (EC),KZSTS
+SST BEIJING,C200
+SST HARBIN,C300
+SST SHANGHAI,C100
+STEVEDORING COMPANY MALY PORT LLC,6800
+SUEK AG (SWISS),7100
+SUEK AG (TAIWAN BRANCH),7300
+SUEK AG CORP USA,7A00
+SUEK ASSETS HOLDING,7E00
+SUEK ASSETS HOLDING AG,7E00
+SUEK BALTIC PL,BCS-7R00
+SUEK BALTIC UAB,BCS-7R00
+SUEK BARTER,BCS-7B00
+SUEK JAPAN CORPORATION,BCS-7J00
+SUEK KOREA,7M00
+SUEK KOREA LTD,7M00
+SUEK KOREA LTD.,7M00
+SUEK LOGISTIC (SWISS),7Y00
+SUEK LOGISTIC GMBH,7Y00
+SUEK LOGISTIC MOSCOW,7Z00
+SUEK MIDDLE EAST DMCC,7C00
+SUEK POLSKA,7Q00
+SUEK POLSKA SP. Z O.O.,7Q00
+SUEK RU (EC),1100
+SUEK SECURITIES D.A.C.,7S00
+SUEK SHANGHAI TRADING CO. LTD.,C100
+"SUEK SHANGHAI TRADING CO., LTD",C100
+SUEK SINGAPORE TRADING CO,7I00
+"SUEK SINGAPORE TRADING CO, PTE. LTD",7I00
+"SUEK SINGAPORE TRADING PTE., LTD",7I00
+TERMINAL SILLAMAE (EC),EETNK
+THE REPRESENTATIVE OFFICE OF SUEK AG IN HANOI CITY,7G00
+TRIDENT,LRTES
+TUGNUY ENRICHMENT FACTORY LIMITED LIABILITIES COMPANY,3F00
+Terra Brown Singapore Pte Ltd,7I00
+TerraBrown AG,7100
+"UAB ,,SUEK BALTIC""",BCS-7R00
+UAB SUEK BALTIC,BCS-7R00
+UKK (EC),RUKUS
+Ushger (EC),KZUSH
+ZAO KANSKY SURFACE MINE,2M00
+АГРОЦЕНТР ВОЛГОГРАД,RUDVO
+АГРОЦЕНТР КРАСНОДАР,RUDKR
+АГРОЦЕНТР КУРСК,RUTKU
+АГРОЦЕНТР ЛИПЕЦК,RUDLI
+АГРОЦЕНТР НЕВИННОМЫССК,RUDNE
+АГРОЦЕНТР НОВОМОСКОВСК,RUDNM
+АГРОЦЕНТР ОРЕЛ,RUDOR
+АГРОЦЕНТР УКРАИНА,UAAGR
+"АКЦИОНЕРНОЕ ОБЩЕСТВО ""РАЗРЕЗ КАНСКИЙ""",2M00
+"АКЦИОНЕРНОЕ ОБЩЕСТВО ""СИБИРСКАЯ ЭНЕРГЕТИЧЕСКАЯ КОМПАНИЯ""",1R00
+"АО ""АБАКАНСКАЯ ТЭЦ""",VH00
+"АО ""БАРНАУЛГЕНЕРАЦИЯ""",W100
+"АО ""БАРНАУЛТЕПСЕТКОМ""",W500
+"АО ""БАРНАУЛЬСКАЯ ГЕНЕРАЦИЯ""",W100
+"АО ""БАРНАУЛЬСКАЯ ТЭЦ-3""",W200
+"АО ""БАРНТЕПЛМАГИСТРКОМП""",W400
+"АО ""БИЙСКЭНЕРГО""",W300
+"АО ""ГОРНО-ХИМИЧЕСКАЯ КОМПАНИЯ ""УШГЕР""",KZUSH
+"АО ""ДАЛЬТРАНСУГОЛЬ""",8200
+"АО ""ЕВРОХИМ-СЗ""",RUESZ
+"АО ""ЕНИСЕЙСКАЯ ТГК (ТГК-13)""",V100
+"АО ""ЕНИСЕЙСКАЯ ТГК (ТГК-13)"" ФИЛИАЛ КРАСНОЯРСКАЯ ТЭЦ-2",V100
+"АО ""ЕНИСЕЙСКАЯ ТГК (ТГК-13)"" ФИЛИАЛ КРАСНОЯРСКАЯ ТЭЦ-3",V100
+"АО ""ЕНИСЕЙСКАЯ ТГК""",V100
+"АО ""КАБАКТИНСКОЕ""",4800
+"АО ""КАНСКАЯ ТЭЦ""",V500
+"АО ""КЕМГЕНЕРАЦИЯ""",U300
+"АО ""КЕМЕРОВСКАЯ ГЕНЕРАЦИЯ""",U300
+"АО ""КЕМЕРОВСКАЯ ГЕНЕРАЦИЯ"" КЕМЕРОВСКАЯ ГРЭС",U300
+"АО ""КОВДОРСКИЙ ГОК""",RUKGK
+"АО ""КРАСНОЯРСКАЯ ТЭЦ-1""",V200
+"АО ""КРАСТЕПЛТРАНСКОМ""",V400
+"АО ""КУЗБАССЭНЕРГО""",U100
+"АО ""КУЗБАССЭНЕРГО"" (БЕЛОВСКАЯ ГРЭС)",U100
+"АО ""КУЗНЕЦКАЯ ТЭЦ""",U200
+"АО ""КФС-ТРАНС""",1W00
+"АО ""КЫЗЫЛСКАЯ ТЭЦ""",V800
+"АО ""ЛУЧЕГОРСКИЙ УР""",6A00
+"АО ""НАЗАРОВСКАЯ ГРЭС""",V300
+"АО ""НЕВИННОМЫССКИЙ АЗОТ""",RUNEV
+"АО ""НОВО-КЕМЕРОВСКАЯ ТЭЦ""",U400
+"АО ""РАЗРЕЗ БЕРЕЗОВСКИЙ""",2D00
+"АО ""РАЗРЕЗ ИЗЫХСКИЙ""",4300
+"АО ""РАЗРЕЗ КАНСКИЙ""",2M00
+"АО ""РАЗРЕЗ НАЗАРОВСКИЙ""",2N00
+"АО ""РАЗРЕЗ ТУГНУЙСКИЙ""",3D00
+"АО ""РАЗРЕЗ ХАРАНОРСКИЙ""",3200
+"АО ""РУБЦОВСКИЙ ТЭК""",W600
+"АО ""СГК-Алтай""",W100
+"АО ""СГК-НОВОСИБИРСК""",Y100
+"АО ""СИБИАЦ""",U700
+"АО ""СИБЭКО"" (НОВОСИБИРСКАЯ ТЭЦ-4)",Y100
+"АО ""СИБЭР""",U600
+"АО ""СУЭК-КРАСНОЯРСК""",2100
+"АО ""СУЭК-КУЗБАСС""",5N00
+"АО ""УПИР""",5300
+"АО ""УРГАЛУГОЛЬ""",6700
+"АО ""ЧЕРНОГОРСКИЙ РМЗ""",4700
+АО «ГКХ «УШГЕР»,KZUSH
+АО «ЕВРОХИМ-СЗ»,RUESZ
+АО «МХК «ЕВРОХИМ»- ФИЛИАЛ В БЕЛАРУСИ-XCSAL,BYEMI
+АО «ПРОМТРАНС»,4G00
+"АО «СУЭК-КУЗБАСС""",5N00
+АО АБАКАНСКАЯ ТЭЦ,VH00
+АО БАРНАУЛЬСКАЯ ГЕНЕРАЦИЯ,W100
+АО БЕРЕЗНИКОВСКИЙ МЕХАНИЧЕСКИЙ ЗАВОД,RUBMZ
+АО ДАЛЬТРАНСУГОЛЬ,8200
+АО ЕВРОХИМ-СЕВЕРО-ЗАПАД,RUESZ
+АО ЕНИСЕЙСКАЯ ТГК,V100
+АО КОВДОРСКИЙ ГОК,RUKGK
+АО КУЗБАССЭНЕРГО,U100
+АО МХК ЕВРОХИМ,RUEMO
+АО НАК АЗОТ,RUNAK
+АО НАЦИОНАЛЬНАЯ ТРАНСПОРТНАЯ КОМПАНИЯ,1N00
+АО НЕВИННОМЫССКИЙ АЗОТ,RUNEV
+АО РАЗРЕЗ ТУГНУЙСКИЙ,3D00
+АО СУЭК-КУЗБАСС,5N00
+АО ТУЛАГИПРОХИМ,RUGPH
+"АО""БАРНАУЛЬСКАЯГЕНЕРАЦИЯ""",W100
+"БФ ""СГК-СОГРЕВАЕМ СЕРДЦА""",1T00
+"Западно-Сибирский филиал ООО ""Сибирская генерирующая компания""",1R00
+"МК ООО ""НОРД ХАРВЕСТ ХОЛДИНГ""",RUAIM
+"МОСКОВСКИЙ ФИЛИАЛ ООО ""СУЭК ЛОГИСТИК""",7Z00
+МУРМАНСКИЙ БАЛЕКРНЫЙ ТЕРМИНАЛ,RUMGT
+"НЕКОММЕРЧЕСКАЯ ОРГАНИЗАЦИЯ ""ФОНД СОЦИАЛЬНО-ЭКОНОМИЧЕСКОЙ ПОДДЕРЖКИ РЕГИОНОВ ""СУЭК-РЕГИОНАМ""",F199
+НКО ФОНД СУЭК-РЕГИОНАМ,F199
+"ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ ""ЕВРОХИМ СЕВЕРНЫЙ КАВКАЗ""",RUNCA
+"ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ ""НАЗАРОВСКОЕ РЫБНОЕ ХОЗЯЙСТВО""",VC00
+ОБЪЕДИНЕННОЕ ПТУ КУЗБАССА,5R00
+"ООО ""АИМ МЕНЕДЖМЕНТ""",1I00
+"ООО ""АИМ ХОЛДИНГ""",1I00
+"ООО ""АПК ""СИБИРЬ""",5S00
+"ООО ""АРКТИЧЕСКИЕ РАЗРАБОТКИ""",1600
+"ООО ""АТЛАНТИК ТРАСТ МАРИН",9F00
+"ООО ""АТЛАНТИК ТРАСТ МАРИН""",9F00
+"ООО ""БАМОВСКАЯ ТЭС-1""",R100
+"ООО ""ВОСТОЧНО-БЕЙСКИЙ РАЗ",4100
+"ООО ""ВОСТОЧНО-БЕЙСКИЙ РАЗРЕЗ""",4100
+"ООО ""ВРЗ ""ДЕПО НТК""",RUDPO
+"ООО ""ВРЗ""ДЕПО НТК""",RUDPO
+"ООО ""ГЕРМАНИЙ И ПРИЛОЖЕНИЯ""",1J01
+"ООО ""ГЛАВЭНЕРГОСБЫТ""",1300
+"ООО ""ГРИНФИН""",2800
+"ООО ""ДЕПО-ЕВРОХИМ""",RUDPO
+"ООО ""ДК ХИМИКОВ""",RUDKH
+"ООО ""ЕВРОХИМ - НИЦ""",RUNIC
+"ООО ""ЕВРОХИМ - УКК""",RUKUS
+"ООО ""ЕВРОХИМ ТРЕЙДИНГ РУС""",RUESM
+"ООО ""ЕВРОХИМ-БМУ""",RUBMU
+"ООО ""ЕВРОХИМ-ВОЛГАКАЛИЙ""",RUVGK
+"ООО ""ЕВРОХИМ-ВОЛГАСЕРВИС""",RUVOS
+"ООО ""ЕВРОХИМ-НЕВИННОМЫССК""",RUENE
+"ООО ""ЕВРОХИМ-НИЦ""",RUNIC
+"ООО ""ЕВРОХИМ-ОНГК""",RUONG
+"ООО ""ЕВРОХИМ-САРАТОВКАЛИЙ",RUESK
+"ООО ""ЕВРОХИМ-САРАТОВКАЛИЙ""",RUESK
+"ООО ""ЕВРОХИМ-УКК""",RUKUS
+"ООО ""ЕХ ДАЛЬНИЙ ВОСТОК""",RUFET
+"ООО ""КИНГИСЕПП-РЕМСТРОЙСЕ",RURKN
+"ООО ""КИНГИСЕПП-РЕМСТРОЙСЕРВИС""",RURKN
+"ООО ""КОРУНД""",9Y00
+"ООО ""КУЗБАССЭНЕРГОФИНАНС""",1U00
+"ООО ""ЛД ""ПРОМТРАНС""",4H00
+"ООО ""ЛЕСТОППРОМ""",1900
+"ООО ""МЕДИКО-САНИТАРНАЯ ЧАСТЬ ""УГОЛЬЩИК""",2U00
+"ООО ""МИНУСИНСКАЯ ТТК""",V600
+"ООО ""МОДУЛЬНЫЕ СИСТЕМЫ ТОРНАДО""",Y800
+"ООО ""МС ТОРНАДО""",Y800
+"ООО ""НАЗАРОВСКАЯ ТТК""",V700
+"ООО ""НАЗАРОВСКОЕ ГМНУ""",2500
+"ООО ""НЕВИННОМЫССК-СЕРВИС""",RUZEL
+"ООО ""НЕВРСС""",RURNE
+"ООО ""НИИУГЛЕОБОГАЩЕНИЯ""",5G00
+"ООО ""НИТРОХИМПРОМ""",1K00
+"ООО ""НОВОКУЗНЕЦКАЯ ТТК""",U500
+"ООО ""НОВОМОСКОВСК-РЕМСТРО",RURNM
+"ООО ""НОВОМОСКОВСК-РЕМСТРОЙСЕРВИС""",RURNM
+"ООО ""НОВОМОСКОВСКИЙ ХЛОР""",RUNCL
+"ООО ""ОРС-ФОСФОРИТ""",RUORF
+"ООО ""ПАНСИОНАТ ""ХИМИК""",RUPAN
+"ООО ""ПАСИФИК ТРАСТ МАРИН""",9G00
+"ООО ""ПГ ""ФОСФОРИТ""",RUFSF
+"ООО ""ПРИМОРСКУГОЛЬ""",6100
+"ООО ""ПРОТЕХСТРОЙ""",RUPTS
+"ООО ""РАЗРЕЗ СЕРЕУЛЬСКИЙ""",2F00
+"ООО ""САНАТОРИЙ-ПРОФИЛАКТОРИЙ ""КОВДОРСКИЙ""",RUSPK
+"ООО ""СИБИРСКАЯ ГЕНЕРИРУЮЩАЯ КОМПАНИЯ""",1R00
+"ООО ""СИБИРСКАЯ ТЕПЛОСБЫТОВАЯ КОМПАНИЯ""",1S00
+"ООО ""СИБИРСКИЕ ПРОМЫШЛЕННЫЕ РЕШЕНИЯ""",BCS-SG7001
+"ООО ""СИБПРОМРЕШЕНИЯ""",BCS-SG7001
+"ООО ""СИБЭНЕРГОАКТИВ""",VB00
+"ООО ""СК ""МАЛЫЙ ПОРТ""",6800
+"ООО ""СТИВИДОРНАЯ КОМПАНИЯ ""МАЛЫЙ ПОРТ""",6800
+"ООО ""СУЭК-ФИНАНС""",1800
+"ООО ""ТЕПЛО""",Y200
+"ООО ""ТЕРМАЛЬ""",U800
+"ООО ""ТОНУС-ПЛЮС""",RUTON
+"ООО ""ТУГНУЙСКАЯ ОБОГАТИТЕЛЬНАЯ ФАБРИКА""",3F00
+"ООО ""ТУГНУЙСКАЯ ОФ""",3F00
+"ООО ""ТУГНУЙСКОЕ ПТУ""",3G00
+"ООО ""УГОЛЬ-ИНЖИНИРИНГ""",VI00
+"ООО ""УПРАВЛЕНИЕ ПО БУРОВЗРЫВНЫМ РАБОТАМ""",4U00
+"ООО ""ХАБАРОВСК-СУЭК""",6600
+"ООО ""ЦИФРОВЫЕ ТЕХНОЛОГИИ И ПЛАТФОРМЫ""",1M00
+"ООО ""ЧЕРНОВСКИЙ РМЗ""",3900
+"ООО ""ЮГ-СЕРВИС""",RUYUG
+"ООО ""ЮЖНО-СИБИРСКАЯ ТСК""",V900
+ООО «АПК «СИБИРЬ»,5S00
+ООО «ГЛАВЭНЕРГОСБЫТ»,1300
+ООО «КОНТРОЛАЛЬДИЛИТ»,TE40
+ООО «ЛИДЕР.ПАРТНЕРЫ»,TE30
+ООО «ПРОТЕХ ИНЖИНИРИНГ»,RUPRO
+ООО «ПРОТЕХЛАБ»,RUPTL
+ООО «ПРОТЕХЛАБ» - ПРЕДСТАВИТЕЛЬСТВО В БЕЛАРУСИ,RUPTB
+ООО «ПРОТЕХСТРОЙ»,RUPTS
+ООО «РАЗРЕЗ ВОСТОЧНЫЙ»,3300
+ООО «СИБ - ДАМЕЛЬ»,5400
+ООО «ФЕРРУМ ПЛЮС»,TS20
+ООО «ЭНЕРГО-АТЛАНТИК»,TS30
+ООО АГРОКАЛИЙ,TE20
+ООО АЗОТТЕХ,RUAZT
+ООО АСТРАХАНСКАЯ НЕФТЕГАЗОВАЯ КОМПАНИЯ,RUANG
+ООО ГИП МОСКВА,BCS-1J01
+ООО ДВОРЕЦ КУЛЬТУРЫ ХИМИКОВ,RUDKH
+ООО ДЕПО-ЕВРОХИМ,RUDPO
+ООО ЕВРОХИМ - БЕЛОРЕЧЕНСКИЕ МИНЕРАЛЬНЫЕ УДОБРЕНИЯ,RUBMU
+ООО ЕВРОХИМ - ВОЛГАКАЛИЙ,RUVGK
+ООО ЕВРОХИМ - УСОЛЬСКИЙ КАЛИЙНЫЙ КОМБИНАТ,RUKUS
+ООО ЕВРОХИМ ДАЛЬНИЙ ВОСТОК,RUFET
+ООО ЕВРОХИМ НАУЧНО-ИССЛЕДОВАТЕЛЬСКИЙ ЦЕНТР (RUNIC),RUNIC
+ООО ЕВРОХИМ СЕВЕРНЫЙ КАВКАЗ,RUNCA
+ООО ЕВРОХИМ ТРЕЙДИНГ РУС,RUESM
+ООО ЕВРОХИМ – ОНГК,RUONG
+ООО ЕВРОХИМ-ВОЛГАКАЛИЙ,RUVGK
+ООО ЕВРОХИМ-ВОЛГОСЕРВИС,RUVOS
+ООО ЕВРОХИМ-ПРОЕКТ,RUTOM
+ООО ЕВРОХИМ-САРАТОВКАЛИЙ,RUESK
+ООО ЕВРОХИМ-СЕВЕРО-ЗАПАД-2,RUNWT
+ООО ЕВРОХИМ-СЕВЕРО-ЗАПАД-3,RUENW
+ООО ЕВРОХИМ-ТЕРМИНАЛ НЕВИННОМЫССК,RUETN
+ООО ЕВРОХИМ-ТЕРМИНАЛ УСТЬ-ЛУГА,RUBGG
+ООО ЕВРОХИМ-ЭНЕРГО,RUERG
+ООО КАРБОНПРО,TS10
+ООО КИНГИСЕПП-РЕМСТРОЙСЕРВИС,RURKN
+ООО НЕВИННОМЫССК-РЕМСТРОЙСЕРВИС,RURNE
+ООО НЕВИННОМЫССК-СЕРВИС (РАНЕЕ ГОСТИНИЦА ЗЕЛЕНАЯ),RUZEL
+ООО НОВОМОСКОВСК-РЕМСТРОЙСЕРВИС,RURNM
+ООО НОВОМОСКОВСКИЙ ХЛОР,RUNCL
+ООО ОРС-ФОСФОРИТ,RUORF
+ООО ПАНСИОНАТ ХИМИК,RUPAN
+ООО ПГ ФОСФОРИТ,RUFSF
+ООО РУСБОНД-ЕВРОХИМ,RUSBO
+ООО САНАТОРИЙ-ПРОФИЛАКТОРИЙ КОВДОРСКИЙ,RUSPK
+ООО СИБИРСКАЯ ГЕНЕРИРУЮЩАЯ КОМПАНИЯ,1R00
+ООО СИБПРОМРЕШЕНИЯ,BCS-SG7001
+"ООО СК ""МАЛЫЙ ПОРТ""",6800
+ООО СУЭК-ХАКАСИЯ,4F00
+ООО ТОНУС-ПЛЮС,RUTON
+ООО УРАЛ-РЕМСТРОЙСЕРВИС,RURBZ
+ООО ЮГ-СЕРВИС,RUYUG
+ОООАРКТИЧЕСКИЕ РАЗРАБОТКИ,1600
+"ОП АО ""СИБЭКО"" НОВОСИБИРСКАЯ ТЭЦ-4",Y100
+"ОП ООО ""ЕВРОХИМ ТРЕЙДИНГ РУС"" В Г. НЕВИННОМЫССК",RUESM
+"ОП ООО ""ЕВРОХИМ ТРЕЙДИНГ РУС"" В Г. УСТЬ-ЛАБИНСК",RUESM
+"ОП ООО ""ЕВРОХИМ ТРЕЙДИНГ РУС"" В П. ДРУЖНЫЙ",RUESM
+"ОП ООО ""ЕВРОХИМ ТРЕЙДИНГ РУС"" В С. ВОРОНЦОВКА",RUESM
+"РАЗРЕЗ ТУГНУЙСКИЙ, АО",3D00
+СУЭК ФИНАНС,1800
+СУЭК-КРАСНОЯРСК,2100
+СУЭК-СПЕШЕЛТИ МИНЕРАЛЗ,F187
+"ТОО ""АГРОЦЕНТР ЕВРОХИМ-КАЗАХСТАН""",KZAGR
+"ТОО ""ГЕРЕС УДОБРЕНИЯ""",KZGER
+"ТОО ""ЕВРОХИМ-КАМЕНКОВСКАЯ НЕФТЕГАЗОВАЯ КОМПАНИЯ""",KZKAM
+"ТОО ""ЕВРОХИМ-КАРАТАУ""",KZKRT
+"ТОО ""САРЫ-ТАС-УДОБРЕНИЯ""",KZSTS
+ТОО ГЕРЕС УДОБРЕНИЯ,KZGER
+ТОО ЕВРОХИМ – КАМЕНКОВСКАЯ НЕФТЕГАЗОВАЯ КОМПАНИЯ,KZKAM
+ТОО ЕВРОХИМ – КАРАТАУ,KZKRT
+ТОО ЕВРОХИМ – УДОБРЕНИЯ,KZUDB
+ТОО САРЫ-ТАС-УДОБРЕНИЯ,KZSTS
+УРГАЛУГОЛЬ,6700
+УРГАЛУГОЛЬ АО,6700
+"ФИЛИАЛ АО ""БАРНАУЛЬСКАЯ ГЕНЕРАЦИЯ"" ""БАРНАУЛЬСКАЯ ТЕПЛОСЕТЕВАЯ КОМПАНИЯ""",W500
+"ФИЛИАЛ АО ""НАК ""АЗОТ"" НОВОМОСКОВСКАЯ ГРЭС",RUNAK
+ФИЛИАЛ ТБТ,RUTBN
+"ФОНД ""СУЭК-РЕГИОНАМ""",F199
+"ЧОУ ДПО ""ЭНЕРГОЦЕНТР""",Y600
+"ЧУ ДПО КУЦ ""ЭНЕРГЕТИК""",VD00
