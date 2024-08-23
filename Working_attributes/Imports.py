@@ -31,6 +31,7 @@ from openpyxl.drawing.image import Image
 import win32com.client as win32
 import os
 from PIL import ImageGrab
+import re
 
 olApp = win32.Dispatch('Outlook.Application')
 olNS = olApp.GetNameSpace('MAPI')
