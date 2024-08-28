@@ -35,3 +35,6 @@ import re
 
 olApp = win32.Dispatch('Outlook.Application')
 olNS = olApp.GetNameSpace('MAPI')
+
+Output_path = 'z:\\Anna_Klimova\\OCP\\Archive\\'
+
