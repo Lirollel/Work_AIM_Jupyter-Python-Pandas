@@ -483,9 +483,9 @@ EuroChem LatAm Sàrl,LULAT
 EuroChem LatAm,LULAT
 CORRIGO FERTILIZERS FZ-LCC,AECOR
 EuroChem Trading Middle East DMCC,AETRD
-Eurochem Group AG (former Eurochem Trading GmbH),CHTRD
-Eurochem Group AG  (former Eurochem Trading GmbH),CHTRD
-Eurochem Group Ag (DWTCA Branch),CHTRD
+Eurochem Group AG (former Eurochem Trading GmbH),CHEAG
+Eurochem Group AG  (former Eurochem Trading GmbH),CHEAG
+Eurochem Group Ag (DWTCA Branch),CHEAG
 EUROCHEM AGRO TRADING (SHENZHEN) CO. LTD,CNEAT
 Protech Israel,ILPRO
 CORRIGO FERTILIZERS FZ-LLC,AECOR
@@ -496,7 +496,7 @@ EUROCHEM AGRO GMBH,DEEAG
 EUROCHEM AGRO HUNGARY KFT,HUAGR
 EUROCHEM AGRO SPA,ITEAG
 EUROCHEM COMERCIO DE PRODUTOS QUIMICOS LTDA,BRCPQ
-EUROCHEM GROUP AG,CHTRD
+EUROCHEM GROUP AG,CHEAG
 EUROCHEM INTERNATIONAL HOLDING B.V.,NLEIH
 EUROCHEM POLSKA Sp. z o.o.,PLAGR
 EUROCHEM TRADING GMBH,CHTRD
@@ -862,7 +862,7 @@ FERTILIZANTES TOCANTINS LTDA,BRFTO
 "ООО ""ЕвроХим Северный Кавказ""",RUNCA
 "АО ""СГК - Алтай""",W100
 "АО ""СГК - Новосибирск""",Y100
-АО "СГК-Новосибирск",Y100
+"АО ""СГК-Новосибирск""",Y100
 "Y100""(УДАЛЕН)АО """"РАЗРЕЗ НАЗАРОВСКИЙ""""""",2N00
 "AGROCENTER EUROCHEM KAZAKHSTAN, LLP",KZAGR
 AGROCENTER EUROCHEM SRL,MDAGR
@@ -906,9 +906,9 @@ EUROCHEM ANTWERPEN OFP,BEANF
 EUROCHEM COMERCIO DE PRODUTOS QUIMI LTDA,BRCPQ
 EUROCHEM FERTILIZERS LLP,KZUDB
 EUROCHEM FINANCE DAC,IEFIN
-EUROCHEM GROUP AG (DWTCA BRANCH),CHTRD
-EUROCHEM GROUP AG (FORMER EUROCHEM TRADING GMBH),CHTRD
-EUROCHEM GROUP AG TRADING,CHETD
+EUROCHEM GROUP AG (DWTCA BRANCH),CHEAG
+EUROCHEM GROUP AG (FORMER EUROCHEM TRADING GMBH),CHEAG
+EUROCHEM GROUP AG TRADING,CHEAG
 EUROCHEM GROUP TRADING,CHETD
 EUROCHEM GROUP UAE BRANCH,AEEAG
 "EUROCHEM KARATAU, LLP",KZKRT
@@ -1294,3 +1294,29 @@ ZAO KANSKY SURFACE MINE,2M00
 "ФОНД ""СУЭК-РЕГИОНАМ""",F199
 "ЧОУ ДПО ""ЭНЕРГОЦЕНТР""",Y600
 "ЧУ ДПО КУЦ ""ЭНЕРГЕТИК""",VD00
+AO SUEK-Krasnoyarsk,2100
+JSC Tugnuisky opencast mine,3D00
+JSC Urgalugol,6700
+Murmansk Bulkcargo Terminal LLC,RUMGT
+"Limited liability Company ""Pacific Trust Marine""",9G00
+"LLC ""Atlantic Trust Marine""",9F00
+"LLC ""Primorskugol""",6100
+"LLC ""Vostochno-Beysky Opencast mine""",4100
+LLC SUEK-Khakasia,4F00
+"Masko, Jsc",9H00
+"Azot, JSC",RUNAK
+"EuroChem Karatau, LLP",KZKRT
+Novomoskovsky Chlor LLC,RUNCL
+"ООО ""КБС-Логистик""",1X00
+"LLC ""EUROСHEM-VolgaKaliy""",RUVGK
+Greenfin LLC,2800
+MCC EuroChem JSC,RUEMO
+ZAO Kansky surface mine,2M00
+Stevedoring Company Maly Port LLC,6800
+"JSC ""Yenisei TGC (TGC-13)""",V100
+"LLC ""Arkticheskie Razrabotki""",1600
+"JSC ""Kuzbassenergo""",U100
+Khabarovsk-SUEK LLC,6600
+"JSC ""Razrez Kharanorsky""",3200
+JSC SUEK-Kuzbass,5N00
+Eurochem Trading Middle East,AETRD
