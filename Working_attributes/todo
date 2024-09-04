@@ -42,7 +42,6 @@ Reports:
 DAILY_TASKS:
     Routine:
         ☐ убрать двойной таб в ту ду
-        ☐ взять отпуск на полет 
         ☐ взять отпуск на стамбул
         ☐ как испортировать из другого файла, чтобы подсвечивались функции
         ☐ как копировать переменные, а не записывать старые в новые
@@ -62,16 +61,38 @@ DAILY_TASKS:
         ☐ поиск по папкам и подкаталогам
     Maksim:
         ☐ Посмотри пожалуйста, насколько данные в табличке unifiedOcp (sourceTable = unifiedARReport) совпадают с нашим расчётом на основе unifiedARReport.
-            ✔ Аня, а почему вот эти обязательства к тебе не попали? @done(24-09-02 10:31)
-                select * from RISKACCESS."unifiedARReport"
-                where "rowType" = 'M' and
-                "reportDate" = '31.07.24' and "customerName" = 'PLASC - PLASTICOS SANTA CATARINA LTDA'
-                30.08.2024 15:28
-            ☐ Давай сверим правила отбора из UnifiedARReport и разбивки на значения в поле accountPurpose
-            ✔ я, а вот такие пустые значения что означают? @done(24-09-02 10:26)
-
-
+            ☐ Почему не совпадают данные из двух таблиц
 Archive:
+  ✔ взять отпуск на полет @done(24-09-04 16:07) @project(DAILY_TASKS.Routine)
+  ✔ Давай сверим правила отбора из UnifiedARReport и разбивки на значения в поле accountPurpose @done(24-09-04 16:07) @project(DAILY_TASKS.Maksim)
+  ✔ Аня, а почему вот эти обязательства к тебе не попали? @done(24-09-02 10:31) @project(DAILY_TASKS.Maksim)
+    select * from RISKACCESS."unifiedARReport"
+    where "rowType" = 'M' and
+    "reportDate" = '31.07.24' and "customerName" = 'PLASC - PLASTICOS SANTA CATARINA LTDA'
+    30.08.2024 15:28
+  ✔ новый запрос автоматический @done(24-09-04 11:43) @project(DAILY_TASKS.Maksim)
+    "rowType" = 'M' and
+    Выборка отфильтровывается в соответствии со справочником счетов xxmdg."riskDebtAccounts"
+    В фильтрации участвуют только строки справочника, где
+    xxmdg."riskDebtAccounts"."ocpFlag" = 'Y'
+    xxmdg."riskDebtAccounts"."active" = 'Y'
+    В выборку включаются счета, где xxmdg."riskDebtAccounts"."action" = 'Include'
+    Затем из выбранного исключаются счета, где xxmdg."riskDebtAccounts"."action" = 'Exclude'
+    Отбор по полям
+    xxwh."unifiedARReport"."sourceSystem" = xxmdg."riskDebtAccounts"."sourceSystem"
+    xxwh."unifiedARReport"."glAccount" = xxmdg."riskDebtAccounts"."accountCode"
+    xxwh."unifiedARReport"."accountPlanType" = xxmdg."riskDebtAccounts"."accountPlanType"
+    xxwh."unifiedARReport"."reportType" = xxmdg."riskDebtAccounts"."reportType"
+    xxwh."unifiedARReport"."bscCode" = xxmdg."riskDebtAccounts"."bscCode"
+    xxwh."unifiedARReport"."bsxCode" = xxmdg."riskDebtAccounts"."bsxCode"
+  ✔ написать sql @done(24-09-04 15:03) @project(DAILY_TASKS.Maksim)
+  ✔ df to string @done(24-09-04 15:03) @project(DAILY_TASKS.Maksim)
+  ✔ напечать скл в текст и брать его @done(24-09-04 15:59) @project(DAILY_TASKS.Maksim)
+  ✔ проверить работоспособность @done(24-09-04 15:59) @project(DAILY_TASKS.Maksim)
+  ✔ убрать первые 3 строки @done(24-09-04 15:59) @project(DAILY_TASKS.Maksim)
+  ✔ засунуть в главный арап с условием даты @done(24-09-04 15:59) @project(DAILY_TASKS.Maksim)
+  ✔ строка с AR и AP @done(24-09-04 15:59) @project(DAILY_TASKS.Maksim)
+  ✔ я, а вот такие пустые значения что означают? @done(24-09-02 10:26) @project(DAILY_TASKS.Maksim)
   ✘ сравнение листов в compaire files - лист из названия файла @cancelled(24-08-27 12:04) @project(DAILY_TASKS.Сompaire OCP)
   ✔ debt @done(24-08-27 12:04) @project(DAILY_TASKS.Сompaire OCP)
   ✘ deals @cancelled(24-08-27 10:27) @project(DAILY_TASKS.Сompaire OCP)
