@@ -96,6 +96,7 @@ def concat_columns(df: pd.DataFrame, columns: list):
 
 # Создание столбца в нужной валюте
 CCY_tech_dict = {'RUC':'CHF','RUE':'EUR','RUE2':'EUR','RUE3':'EUR','RUE5':'EUR','RUG':'GBP','RUJ':'JPY','RUK':'KZT','RUM':'MDL','RUU':'USD','RUU1':'USD','RUU1R':'USD','RUU2':'USD','RUU25':'USD','RUU26':'USD','RUU3':'USD','RUU5':'USD','RUY':'CNY','RUK5':'KZT','RUY3':'CNY','RUY5':'CNY', 'RUI':'INR'}
+
 def add_in_currency_column(df: pd.DataFrame, CCY_to: str, col_with_CCY: str, date_is_column: bool, col_with_VAL: str, DATE: str = 'YYYY-MM-DD'):
     df_columns_list = df.columns.tolist()
     df['CCY_to'] = CCY_to
