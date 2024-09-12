@@ -25,6 +25,7 @@ OCP:
     Sheets:
         ☐ ARAP
         ☐ Cash
+            ☐ Percent
         ☐ Deals
         ☐ Debt
         ☐ Invest
@@ -40,6 +41,11 @@ Reports:
         ☐ TimokhinEV@aimmngt.com
 
 DAILY_TASKS:
+    ☐ August OCP @today @first 
+        ☐ deadline fri morning
+        ✘ Invest в хранилище @cancelled(24-09-12 15:55)
+        ☐ new query ARAP
+        ☐ new query Debt
     Routine:
         ☐ убрать двойной таб в ту ду
         ☐ взять отпуск на стамбул
@@ -64,8 +70,10 @@ DAILY_TASKS:
     Maksim:
       ☐ сравнение двух выборок на примере строки -раньше забирали, а сейчас не забираем @today
           ✔ сравнить запросы @done(24-09-11 14:01)
-          ☐ привести пример
+          ✔ привести пример @done(24-09-12 13:45)
           ☐ подтвердить, что нам это брать не надо или все таки надо - обоснавать мэппинг счетов
+              ☐ Максим
+              ☐ вытащить все поля
         Кредитный_портфель:
             ☐ compaire SAP - ARreport @first
                 ☐ действительно ли это займы и кредиты
