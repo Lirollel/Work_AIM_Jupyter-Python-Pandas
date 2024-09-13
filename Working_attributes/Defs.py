@@ -173,10 +173,10 @@ def export_from_WHWEEK(query):
     connection.close()
     return data_export
 
-def is_approximately_equal_for_cols(df: pd.DataFrame, col_1:str ,col_2:str , tolerance=0.4, print_diff=False):
+def is_approximately_equal_for_cols(df: pd.DataFrame, col_1:str ,col_2:str , tolerance=0.4, print_diff=False, name_col_with_diff=''):
     # tolerance - persentage of differences in max value
 
-    name_diff_col = f'Diff_more_{tolerance}'
+    name_diff_col = f'Diff_{name_col_with_diff}_more_{tolerance}'
     df[name_diff_col] = np.nan
     #compaire values
     max_value = df[[col_1, col_2]].abs().max(axis=1)
