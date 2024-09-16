@@ -49,17 +49,19 @@ def merge_Mapping(df, col):
     return merge_data
 
 # Counting the Period by df, day for counting and column with date
-def Period(df, day_for_count, col_with_date):
+def Period(df, day_for_count, col_with_date, day_is_col=False):
 
-    day = pd.to_datetime(day_for_count)
     df = df.reset_index(drop=True)
 
+    if day_is_col==False:
+        day = pd.to_datetime(day_for_count)
+        df[day_for_count] = day
     while True:
-        if np.issubdtype(df[col_with_date].dtype, np.datetime64):
+        if np.issubdtype(df[col_with_date].dtype, np.datetime64) and np.issubdtype(df[day_for_count].dtype, np.datetime64):
 
-            df['Days'] = df[col_with_date] - day
+            df['Days'] = df[col_with_date] - df[day_for_count]
             df['Days'] = df['Days'].dt.days
-            df.loc[df[col_with_date].isna() ,'Days'] = 0
+            df['Days'] = df['Days'].fillna(0)
 
             df['Period'] = '2Y+'
             df.loc[pd.to_numeric(df['Days']) < 730, 'Period'] = '1Y-2Y'
@@ -71,8 +73,10 @@ def Period(df, day_for_count, col_with_date):
 
         else:
             df[col_with_date] = pd.to_datetime(df[col_with_date], errors='coerce')
+            df[day_for_count] = pd.to_datetime(df[day_for_count], errors='coerce')
             continue
-    
+    if day_is_col==False:
+        df = df.drop(columns=day_for_count)
     return df
 
 # Запись данных на новый лист существующего файла
