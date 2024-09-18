@@ -5,7 +5,11 @@
 
 
 import sys
-sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes")
+try:
+    sys.path.append("C:\\Users\\KlimovaAnnaA\\Documents\\MyFiles\\Projects\\Working_attributes")
+except:
+    sys.path.append("z:\\Anna_Klimova\\Working_attributes")
+    
 from Defs import merge_SalesUnits
 from Defs import merge_Mapping
 from Defs import Period
