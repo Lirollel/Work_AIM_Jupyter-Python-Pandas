@@ -41,22 +41,29 @@ Reports:
         ☐ TimokhinEV@aimmngt.com
 
 DAILY_TASKS:
-    ☐ новый debt и deriv в изначальные скрипты
+    ☐ автоотправка отчетов @high
     Routine:
-        ☐ убрать двойной таб в ту ду
-        ✔ взять отпуск на стамбул @done(24-09-18 09:24)
         ☐ как испортировать из другого файла, чтобы подсвечивались функции
-        ✔ автоматичсекая отправка отчетов, если меня нет на месте @done(24-09-18 09:24)
     Coal:
         ☐ уточнить у Максима а то ли я делаю
           ☐ Поискать данные для цен на уголь API8, ICI4, API2 и NEWC в базе UMDAP, и поисследовать насчёт корреляции в разные периоды.
               ☐ добавить периоды в дф и построить графики относительно них
-        Инвестиции:
-            ✔ Сравнить с unofied OCP плд источником @high @done(24-09-18 15:25)
-                select * from "RISKACCESS"."unifiedOcp" where "reportDate"='31.08.24' and "sourceTable" = 'sapBwInvestmentReport'
-                ☐ doc
+        Сделки:
+            ☐ свежий отчет сравнить с юнифайд осп @high
+            ☐ сравнить бразилию
+                ☐ проверить разные источники из юнифайда по компаниям бразилии
+                    ☐ unifiedDealsBrazil_externalPurchasesRecap
+                    ☐ unifiedDealsBrazil_externalSalesOrders
+                    ☐ brfto and brhrg
+                        ☐ последние 2 таблицы 
+                        ☐ перчасес в бд должны быть с минусом
+                        ☐ сэйлес должны быть с плюсом
+                        ☐ столбцы - это продукты. по идее должны быть в поле
+                        ☐ ячейки - это тонны
+                        ☐ в более верхней таблице есть ценв за тонну
+                        ☐ по каждому продукту в графе тотал его тоннаж умноженный на цену должен быть примерно равен юнифайд осп
+            ☐ сравнить америку
         Кредитный_портфель:
-            ✔ Описать алгоритм по подсчету Bonds @high @done(24-09-18 10:35)
             ☐ compaire SAP - ARreport
                 ☐ действительно ли это займы и кредиты
                 ☐ нет ли ничего лишнего
@@ -76,6 +83,16 @@ DAILY_TASKS:
                         у BRFTO есть выданный займ на другие бразильские компании (где-то среди AR)
                         в quantum есть бразильские компании
 Archive:
+  ✔ еврохим и еврохим сам @done(24-09-20 13:22) @project(DAILY_TASKS)
+  ✔ новый debt и deriv в изначальные скрипты @done(24-09-20 10:19) @project(DAILY_TASKS)
+  ✔ убрать двойной таб в ту ду @done(24-09-20 10:51) @project(DAILY_TASKS.Routine)
+  ✔ doc @done(24-09-20 07:53) @project(DAILY_TASKS.Coal.Инвестиции)
+  ✘ обращать внимание на сырье или законченная продукция в юнифайд осп. По идее нам нужен finished goods, но в системе бывает записано по разному @cancelled(24-09-20 12:55) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ взять отпуск на стамбул @done(24-09-18 09:24) @project(DAILY_TASKS.Routine)
+  ✔ автоматичсекая отправка отчетов, если меня нет на месте @done(24-09-18 09:24) @project(DAILY_TASKS.Routine)
+  ✔ Сравнить с unofied OCP плд источником @high @done(24-09-18 15:25) @project(DAILY_TASKS.Coal.Инвестиции)
+    select * from "RISKACCESS"."unifiedOcp" where "reportDate"='31.08.24' and "sourceTable" = 'sapBwInvestmentReport'
+  ✔ Описать алгоритм по подсчету Bonds @high @done(24-09-18 10:35) @project(DAILY_TASKS.Coal.Кредитный_портфель)
   ✔ SAP + quantum compaire to unifiedOCP @today @done(24-09-16 15:45) @project(DAILY_TASKS.Coal.Кредитный_портфель)
   ✔ first doc OCP @done(24-09-16 11:01) @project(DAILY_TASKS.Coal.Кредитный_портфель)
   ✔ сравнить квантум на 31 июля, 31 августа с юнифайдем @done(24-09-16 11:01) @project(DAILY_TASKS.Coal.Кредитный_портфель)
