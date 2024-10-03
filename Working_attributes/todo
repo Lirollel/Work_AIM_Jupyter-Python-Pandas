@@ -42,27 +42,95 @@ Reports:
 
 DAILY_TASKS:
     ☐ автоотправка отчетов @high
+        ☐ лимиты в банках
+            pywintypes.com_error: (-2147352567, 'Ошибка.', (0, 'Microsoft Excel', 'Не удалось освободить место в буфере обмена. Возможно, он используется другим приложением.', 'xlmain11.chm', 0, -2146827284), None)
+            Для продолжения нажмите любую клавишу . . .
+            
+            C:\Windows\system32>call C:\Users\KlimovaAnnaA\AppData\Local\miniconda3\Scripts\activate.bat
+            The "Limits" just started running
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Working_attributes\Defs.py:92: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+              data_export = pd.read_sql(query, con=connection)
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:82: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[5.67556300e-02 7.29200000e-05 0.00000000e+00 ... 3.72663047e-03
+            0.00000000e+00 0.00000000e+00]' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              BABD_data_work.loc[BABD_data_work.accountStatus.isin(accountStatus_list), 'balanceUsd_activmoney_market'] = BABD_data_work.loc[BABD_data_work.accountStatus.isin(accountStatus_list), 'balanceUsd_mln']
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Working_attributes\Defs.py:92: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+              data_export = pd.read_sql(query, con=connection)
+            A value is trying to be set on a copy of a slice from a DataFrame.
+            Try using .loc[row_indexer,col_indexer] = value instead
+
+            See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+              BABD_data_limit_not_na['Usage_activmoney_market'] = (BABD_data_limit_not_na.balanceUsd_activmoney_market/BABD_data_limit_not_na.Limit)*100
+            A value is trying to be set on a copy of a slice from a DataFrame.
+            Try using .loc[row_indexer,col_indexer] = value instead
+
+            See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+              BABD_data_limit_not_na['Usage'] = (BABD_data_limit_not_na.balanceUsd_mln/BABD_data_limit_not_na.Limit)*100
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:105: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[5.675563e+01 1.458400e-03 0.000000e+00 ... 0.000000e+00 0.000000e+00
+            0.000000e+00]' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              BABD_data_work[~BABD_data_work.Limit.isna()] = BABD_data_limit_not_na
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:105: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '[5.67556300e+01 1.45840000e-03 0.00000000e+00 ... 0.00000000e+00
+            0.00000000e+00 1.79767008e-04]' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              BABD_data_work[~BABD_data_work.Limit.isna()] = BABD_data_limit_not_na
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Working_attributes\Defs.py:92: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+              data_export = pd.read_sql(query, con=connection)
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Working_attributes\Defs.py:33: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '['NAM' 'EX SUEK AG' 'EX SUEK AG' ... 'SUEK RU' 'SUEK RU' 'SGC']' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+              merge_data.loc[merge_data[f'{id_colmn}_merge'] != 'External', 'last_merge'] = merge_data.loc[merge_data[f'{id_colmn}_merge'] != 'External', f'{id_colmn}_merge']
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Working_attributes\Defs.py:92: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+              data_export = pd.read_sql(query, con=connection)
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:170: FutureWarning: The provided callable <built-in function sum> is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.
+              pivot_data_for_frame = holding_data.pivot_table(index='bank_name', values='Total', aggfunc=sum, columns='Segment').reset_index()
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0.05' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '5.19' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '2.3' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0.6799999999999999' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '16.83' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '6.24' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:191: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '7.5' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              data_concat.loc[(data_concat.bankCountryCode==country)&(data_concat.bank_name.isna()),'index_copy'] = change_values_index_dict[country]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:194: FutureWarning: The provided callable <built-in function sum> is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.
+              pivot_data_for_frame = holding_data.pivot_table(index='bankCountryCode', values='Total', aggfunc=sum, columns='Segment').reset_index()
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:170: FutureWarning: The provided callable <built-in function sum> is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.
+              pivot_data_for_frame = holding_data.pivot_table(index='bank_name', values='Total', aggfunc=sum, columns='Segment').reset_index()
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:174: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '48.54' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              Frame_table.loc[Frame_table.bank_name==bank_name,segment_column] = [df_dict_list[x] for x in range(len(df_dict_list)) if df_dict_list[x]['bank_name']==bank_name][0][segment_column]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:191: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '19.5' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+              data_concat.loc[(data_concat.bankCountryCode==country)&(data_concat.bank_name.isna()),'index_copy'] = change_values_index_dict[country]
+            C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py:194: FutureWarning: The provided callable <built-in function sum> is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.
+              pivot_data_for_frame = holding_data.pivot_table(index='bankCountryCode', values='Total', aggfunc=sum, columns='Segment').reset_index()
+              File "C:\Users\KlimovaAnnaA\Documents\MyFiles\Projects\Auto\Limits\Bank_limits_daily_report.py", line 506, in <module>
+                ws.Range(field).CopyPicture(Format = 2) # screen area
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              File "<COMObject Range>", line 2, in CopyPicture
+              File "C:\Users\KlimovaAnnaA\AppData\Local\miniconda3\Lib\site-packages\win32com\client\dynamic.py", line 366, in _ApplyTypes_
+                result = self._oleobj_.InvokeTypes(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+            pywintypes.com_error: (-2147352567, 'Ошибка.', (0, 'Microsoft Excel', 'Не удалось освободить место в буфере обмена. Возможно, он используется другим приложением.', 'xlmain11.chm', 0, -2146827284), None)
+            Для продолжения нажмите любую клавишу . . .
+    Maksim:
+        Инвестиции:
+            ☐ что выгрузилось из таблицы письма сравнить с ручной выгрузкой
+                это должно заместить текущий источник по инвестициям
+                По инвестициям уточню - тестовая выгрузка (которая на WHWEEK в хранилище) по идее может быть ограничена по списку БЕ и/или датам событий.
+                Но, для тех БЕ и дат, которые есть в тестовой выгрузке, должно сходиться почти идеально
+                ✔ перемешались коды между столбцами @done(24-10-03 09:15)
+                ✔ выгрузку из фулл ковер проверить @done(24-10-03 10:06)
+                ✔ проверить вхождение кодов в выборку @done(24-10-03 10:06)
+                ✔ править выборку @done(24-10-03 10:06)
+                ✔ смерджить лишь по одному полю каждому и сравнить другие поля на равенство с привязкой к названию комапнии @done(24-10-03 10:27)
+                ✔ если косяков нет, то мердж по совпадению лишь одного поля @done(24-10-03 10:27)
     Routine:
         ☐ как испортировать из другого файла, чтобы подсвечивались функции
+        ☐ табуляцию все время слетает
     Coal:
         ☐ уточнить у Максима а то ли я делаю
           ☐ Поискать данные для цен на уголь API8, ICI4, API2 и NEWC в базе UMDAP, и поисследовать насчёт корреляции в разные периоды.
               ☐ добавить периоды в дф и построить графики относительно них
-        Сделки:
-            ☐ свежий отчет сравнить с юнифайд осп @high
-            ☐ сравнить бразилию
-                ☐ проверить разные источники из юнифайда по компаниям бразилии
-                    ☐ unifiedDealsBrazil_externalPurchasesRecap
-                    ☐ unifiedDealsBrazil_externalSalesOrders
-                    ☐ brfto and brhrg
-                        ☐ последние 2 таблицы 
-                        ☐ перчасес в бд должны быть с минусом
-                        ☐ сэйлес должны быть с плюсом
-                        ☐ столбцы - это продукты. по идее должны быть в поле
-                        ☐ ячейки - это тонны
-                        ☐ в более верхней таблице есть ценв за тонну
-                        ☐ по каждому продукту в графе тотал его тоннаж умноженный на цену должен быть примерно равен юнифайд осп
-            ☐ сравнить америку
         Кредитный_портфель:
             ☐ compaire SAP - ARreport
                 ☐ действительно ли это займы и кредиты
@@ -83,6 +151,57 @@ DAILY_TASKS:
                         у BRFTO есть выданный займ на другие бразильские компании (где-то среди AR)
                         в quantum есть бразильские компании
 Archive:
+  ✔ ARreport ищем счета из файла @done(24-10-02 11:48) @project(DAILY_TASKS.Maksim.Бразилия)
+  ✔ конец августа @done(24-10-02 11:48) @project(DAILY_TASKS.Maksim.Бразилия)
+  ✔ по валютам @done(24-10-02 11:48) @project(DAILY_TASKS.Maksim.Бразилия)
+  ✔ полностью @done(24-10-02 11:48) @project(DAILY_TASKS.Maksim.Бразилия)
+  ✔ инсертед от 30 сентября @done(24-10-02 16:04) @project(DAILY_TASKS.Maksim.Инвестиции)
+  ✔ Посмотри пожалуйста историю вот этого счёта - когда он вообще впервые появился? @done(24-10-01 10:12) @project(DAILY_TASKS.Maksim)
+    И его действительно в базе нет с 10 сентября?
+  ✔ 2. Как давно у нас появился вот этот счёт? @done(24-10-01 10:23) @project(DAILY_TASKS.Maksim)
+    вижу его в превышении за 25 число, но не вижу в кволити чек за это же число как новый счет
+  ✔ фильровать нулевые счета? @done(24-10-01 11:30) @project(DAILY_TASKS.Maksim)
+  ✔ превышение? @done(24-10-01 11:30) @project(DAILY_TASKS.Maksim)
+  ✔ свежий отчет сравнить с юнифайд осп @high @done(24-09-25 14:00) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ doc @done(24-09-25 14:03) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ не все сделки попадают - какие не попадают @done(24-09-25 14:18) @project(DAILY_TASKS.Coal.Сделки)
+  ✘ сравнить америку @cancelled(24-09-23 15:05) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ отбирать из первоисточника номера сделок, идущих в расчет @done(24-09-25 14:00) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ Условия фильтрации для XXWH.flowDealsReportChanges @second @done(24-09-25 12:51) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ По атрибуту "##inserted" выбираем самую актуальную запись на отчетную дату reportDate (на конец дня). @done(24-09-25 12:51) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ Статус сделки на отчетную дату "deal_state" = 'Confirmed' – ожидаем, что движения товара начинаются после получения сделкой статуса 'Confirmed' @done(24-09-25 10:41) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ "##deleted" = 'N' @done(24-09-25 10:41) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ "is_closed" = 'No' – сделка открыта на отчетную дату @done(24-09-25 10:42) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ Исключаем такие сделки из расчета @done(24-09-25 12:47) @project(DAILY_TASKS.Coal.Сделки)
+    Сделка отвечает предыдущим 4-ем условиям, но "supplier_company_id", "mediator_sales_unit", "trader_sales_unit" одновременно принимают null значения, при этом выполнено одно из условий
+  ✔ "sales_model" = 'Replanishment' @done(24-09-25 12:37) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ если "sales_unit" содержит значение "buCode" равное "buCode" клиента, наименование которого записано в "customer_company", то также исключаем из витрины @done(24-09-25 12:45) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ to_customers_seller_id @done(24-09-25 14:00) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ 2. Если unifiedOcp.introgroupCounterpartyCode("customer_company", trunc("agreement_date")) "introgroup_customer" in ('BRFTO', 'BRHRG') @done(24-09-25 12:47) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ сравнивать реестр слелок @done(24-09-25 14:00) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ переписать hrg @done(24-09-25 08:08) @project(DAILY_TASKS.Coal.Сделки.Бразилия)
+  ✔ excel @done(24-09-25 08:08) @project(DAILY_TASKS.Coal.Сделки.Бразилия)
+  ✔ unifiedDealsBrazil_externalSalesOrders @done(24-09-25 08:23) @project(DAILY_TASKS.Coal.Сделки.Бразилия)
+  ✔ выбросы @done(24-09-25 08:23) @project(DAILY_TASKS.Coal.Сделки.Бразилия)
+  ✔ лимиты @done(24-09-23 11:35) @project(DAILY_TASKS)
+  ✔ ликвидность @done(24-09-23 08:12) @project(DAILY_TASKS)
+  ✔ сравнить бразилию @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ unifiedDealsBrazil_purchasesRecapBRHRG @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ unifiedDealsBrazil_externalPurchasesRecap @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ unifiedDealsBrazil_externalSalesOrders @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ unifiedDealsBrazil_sapSalesOrders @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ flowDealsReportChanges @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ проверить разные источники из юнифайда по компаниям бразилии @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ unifiedDealsBrazil_externalPurchasesRecap @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ unifiedDealsBrazil_externalSalesOrders @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ brfto and brhrg @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ последние 2 таблицы @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ перчасес в бд должны быть с минусом @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ сэйлес должны быть с плюсом @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ столбцы - это продукты. по идее должны быть в поле @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ ячейки - это тонны @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ в более верхней таблице есть ценв за тонну @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
+  ✔ по каждому продукту в графе тотал его тоннаж умноженный на цену должен быть примерно равен юнифайд осп @done(24-09-23 07:57) @project(DAILY_TASKS.Coal.Сделки)
   ✔ еврохим и еврохим сам @done(24-09-20 13:22) @project(DAILY_TASKS)
   ✔ новый debt и deriv в изначальные скрипты @done(24-09-20 10:19) @project(DAILY_TASKS)
   ✔ убрать двойной таб в ту ду @done(24-09-20 10:51) @project(DAILY_TASKS.Routine)

@@ -36,6 +36,7 @@ import win32com.client as win32
 import os
 from PIL import ImageGrab
 import re
+import time
 
 olApp = win32.Dispatch('Outlook.Application')
 olNS = olApp.GetNameSpace('MAPI')
