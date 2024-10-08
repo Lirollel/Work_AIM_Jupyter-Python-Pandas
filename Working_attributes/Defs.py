@@ -94,8 +94,8 @@ def export_from_RISKCUSTOM(query):
     return data_export
 
 # Конкатенация столбцов
-def concat_columns(df: pd.DataFrame, columns: list):
-    df['concat_columns'] = df[columns].astype(str).apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
+def concat_columns(df: pd.DataFrame, columns: list, sign: str = '_'):
+    df['concat_columns'] = df[columns].astype(str).apply(lambda row: sign.join(row.values.astype(str)), axis=1)
     return df
 
 # Создание столбца в нужной валюте

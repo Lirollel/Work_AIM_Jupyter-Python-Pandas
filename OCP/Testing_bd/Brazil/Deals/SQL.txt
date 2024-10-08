@@ -1,0 +1,2 @@
+
+select * from "RISKACCESS"."OPRECBrazilDaily" where "salesUnitCode" in ('BRFTO','BRHRG') and "reportDate" = '20.09.24'
