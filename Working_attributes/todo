@@ -42,33 +42,34 @@ Reports:
 
 DAILY_TASKS:
     Maksim:
+        ☐ ocp октябрь до ПН
         Brazil:
             Deals:
-                ☐ files
                     ☐ Credit_Orderbook_20-09-2024_Not_Scheduled_(1).xlsx
                         сущность #1 - выгрузка от Паши
                         2 sheets, all of it deals of sales
-                    ☐ Contracts_-_FH_-_Oct_01,_2024.xlsx
-                        Сущность #2 - выгрузка от Erico
                     ☐ BRFTO_FX_Exposure_Model_20.09.2024.xlsx
                         Сущность #2 (на листе Contracts) - тоже выгрузка от Erico
-                    ☐ select * from "RISKACCESS"."OPRECBrazilDaily" where "salesUnitCode" in ('BRFTO','BRHRG') and "reportDate" = '20.09.24'
-                        Сущность #3 - сделки из ECBrazil
-                        ! обрати внимание, что там есть и запасы и сделки покупки - их надо отсеять, чтобы остались только сделки продажи
                 ☐ сущность 2 - используется бразильцами для расчета ОВП, кажется объемы не сходятся. Есть 2 альтернативы с чем их сверить. На хранилище считаем почти достоверным, первая сущность - альтернативное мнение, может быть неккорректным, по идее прямая выгрузка из системы без доп обработок. Достоверно не знаем по каким признакам выгружали
-                ☐ что попало в сущность 2 и что не попало
-                    ☐ могли не попасть сделки в долларах
-                    ☐ ожидания - сущность 2 меньше сущности 1 и 3
+                        ☐ переименовка столбцов и типизация в процессе чтения, добавить валюту
+                            ☐ 1 FTO
+                            ☐ 2 FTO
+                    ☐ формат базы и столбцы для мерджа
+                    ☐ customerName исправить 
 
                     ☐ триггеры:
                         ☐ подсветить большие куски, которые есть в 2, но нет в одной из 1 или 3
                         ☐ объекты мы видим в 2 и в 1 или 3, но существенные различия по объему
                         ☐ большое видим в 1 или 3, но не видим в 2
                     ☐ конкретные вопросы вместо 10 тыс строк таблицы
-                    ☐ пробовать смотреть на айди сделок или контрактов
+
     Routine:
         ☐ как испортировать из другого файла, чтобы подсвечивались функции
         ☐ табуляцию все время слетает
+        ☐ doc structure
+        ☐ hot taps to create and manage files
+        ☐ удаление пустых столбцов датафрейма в функцию - dropna(axis=1)?
+        ☐ function finding info in another df
     Coal:
         ☐ уточнить у Максима а то ли я делаю
           ☐ Поискать данные для цен на уголь API8, ICI4, API2 и NEWC в базе UMDAP, и поисследовать насчёт корреляции в разные периоды.
@@ -93,6 +94,44 @@ DAILY_TASKS:
                         у BRFTO есть выданный займ на другие бразильские компании (где-то среди AR)
                         в quantum есть бразильские компании
 Archive:
+  ✘ добавить 2 источник для 2 сущности @cancelled(24-10-11 13:12) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✘ добавить 2 источник для 1 сущности @cancelled(24-10-11 13:12) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ могли не попасть сделки в долларах @done(24-10-11 13:12) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ files @done(24-10-10 08:07) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ rename columns in every creature to concat them @done(24-10-10 08:31) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ Contracts_-_FH_-_Oct_01,_2024.xlsx @done(24-10-08 14:51) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+    Сущность #2 - выгрузка от Erico
+  ✔ select * from "RISKACCESS"."OPRECBrazilDaily" where "salesUnitCode" in ('BRFTO','BRHRG') and "reportDate" = '20.09.24' @done(24-10-08 14:58) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+    Сущность #3 - сделки из ECBrazil
+  ✔ ! обрати внимание, что там есть и запасы и сделки покупки - их надо отсеять, чтобы остались только сделки продажи @done(24-10-08 15:05) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ "mtmOrderBookType" = 'Sales' @done(24-10-08 15:05) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ найти на чем коннектить базы @done(24-10-10 08:07) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ убрать все нулевые столбцы @done(24-10-09 09:28) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ are there info from creature 1 from 1 col in another creatures @done(24-10-09 11:08) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✘ number + date @cancelled(24-10-09 14:06) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ общие слобцы для всех сущностей, чтобы сравнивать их между собой @done(24-10-09 14:06) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ пробовать смотреть на айди сделок или контрактов @done(24-10-10 08:06) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ что попало в сущность 2 и что не попало @done(24-10-10 14:30) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ группировка по общим столбцам @done(24-10-10 14:29) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ найти каждый предполагаемый айдишних в других базах @done(24-10-10 08:23) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ найти поле для айдишников в 3 базе по кол-ву отбираемых строк - orderId @done(24-10-10 08:31) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ код продукта привести к общему типу @done(24-10-10 14:28) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ 2 не коннектить и разобрать отдельно по 2 лоп сущностям @done(24-10-10 09:30) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✘ маппинг контрагентов @cancelled(24-10-10 14:29) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ 1 @done(24-10-11 11:14) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ 2 @done(24-10-11 11:32) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ 3 @done(24-10-11 11:39) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ прочесть только один источник из credits @done(24-10-11 11:36) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ мердж. по номерам сделок мерджится, так что @done(24-10-11 12:42) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ найти кол-ва и @done(24-10-11 11:36) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ выделить одну сделку во всех файлах и найти похожие значения - 70096781 @done(24-10-11 11:36) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ кол-во @done(24-10-11 11:35) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ итоговая стоимость @done(24-10-11 11:35) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ валюта @done(24-10-11 11:35) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ дата @done(24-10-11 11:36) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ нужна ли группировка по продуктам? @done(24-10-11 11:55) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ ожидания - сущность 2 меньше сущности 1 и 3 @done(24-10-11 12:58) @project(DAILY_TASKS.Maksim.Brazil.Deals)
+  ✔ добавить валюту @done(24-10-11 12:42) @project(DAILY_TASKS.Maksim.Brazil.Deals)
   ✔ номер счет а в описание файла на англ @done(24-10-08 10:55) @project(DAILY_TASKS.Maksim)
   ✔ что выгрузилось из таблицы письма сравнить с ручной выгрузкой @done(24-10-08 10:55) @project(DAILY_TASKS.Maksim.Инвестиции)
     это должно заместить текущий источник по инвестициям
