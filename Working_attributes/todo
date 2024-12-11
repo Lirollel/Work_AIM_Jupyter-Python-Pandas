@@ -45,11 +45,6 @@ Reports:
 
 DAILY_TASKS:
 
-    RAAC:
-        Методология:
-            ☐ Описать алгоритм (вход, процесс, выход) отдельно по частям @today 
-                ☐ посмотреть примеры ТЗ
-                ☐ определить части
     
     IT:
         Справочник:
@@ -58,15 +53,12 @@ DAILY_TASKS:
             ☐ Сравнене на тестовой базе:
                 ☐ unified OCP должен полностью повторять источник
             ☐ проверка решения проблемы от Юры 
-                ✔ деривативы если есть в дебт, не должны попадать @done(24-12-06 13:58)
                 ☐ маппинг наименований
                     ☐ из-за плечей описать проблему - полностью зеркалить, а не только 2 поля
                     ☐ для контрагентов не паммится группа из-за создания потока бондов - какой порядок бондов
-                    ✔ обновить маппинг @done(24-12-06 13:58)
             ☐ Запуск на рабочую базу @on_demand
             ☐ Проверка на рабочей базе @on_demand
         Invest:
-            ✔ некорректный маппингd @done(24-12-06 13:58)
             ☐ Запуск на рабочую базу @on_demand
             ☐ Проверка на рабочей базе @on_demand
 
@@ -82,18 +74,26 @@ DAILY_TASKS:
                 ☐ добавить задержку в 10 минут
 
     Brazil:
-        OCP:
+        Brazil monitoring:
             Нужно настроить их мониторинг – разбор основных статей, и как они меняются со временем. Цель – на каждую новую дату понимать за счёт чего изменилась позиция относительно предыдущего дня.
             Основные статьи находятся вот здесь, на закладке FX Exposure Balance Sheet
-            ✔ создать сводную по операциям @done(24-12-06 09:50)
-            ✔ добавить название компании к данным @done(24-12-06 10:03)
+                ☐ форматирование      
+                ✔ соответсвие значений датам @done(24-12-11 10:16)
+                ☐ првоерить даты еще раз
 
-            ✔ изменение объема @done(24-12-06 09:50)
-            ✔ процент изменения @done(24-12-06 10:30)
-            ✔ измененеие по статьям отсортированное по убыванию @done(24-12-06 10:03)
-            ✔ объеденить все данные @done(24-12-06 10:55)
-            ✔ спустить вниз asserts, current labilites и прочееd @done(24-12-06 13:35)
-            ✔ обеспечить лучшую сходимость по строкам @done(24-12-06 13:35)
+                Maxim:
+                    ☐ Net Exposure Balance BRL up
+                    ☐ tables naming
+                    ☐ cols naming
+                    ☐ data_3 by cols
+                    ☐ data_4 Non monetary nominated не идёт в расчёт
+                    ☐ data_4 Liabilities and equity	Industrialization	<-эту строчку не надо
+                    ☐ data_4 Assets	Total Off Balance Assets	<-переезжает в предыдущий блок
+                    ☐ data_4 Liabilities and equity	Total Off Balances Liabilities	<-переезжает в предыдущий блок
+                    ☐ data_5 drop 1 col
+                    ☐ data_5 add Exposure currency type col Сюда раскладываем BRL denominated, USD denominated и т.д.
+                    ☐ add empty col 1 for all table
+                    
 
         Cash:
             ☐ убедиться, что присланный расчет соответсвует методике - нашим ожиданиям что включается, а что нет
@@ -156,6 +156,38 @@ DAILY_TASKS:
                     у BRFTO есть выданный займ на другие бразильские компании (где-то среди AR)
                     в quantum есть бразильские компании
 Archive:
+  ✔ Описать алгоритм (вход, процесс, выход) отдельно по частям @today @done(24-12-10 08:47) @project(DAILY_TASKS.RAAC.Методология)
+  ✔ посмотреть примеры ТЗ @done(24-12-10 08:47) @project(DAILY_TASKS.RAAC.Методология)
+  ✔ определить части @done(24-12-10 08:47) @project(DAILY_TASKS.RAAC.Методология)
+  ✔ деривативы если есть в дебт, не должны попадать @done(24-12-06 13:58) @project(DAILY_TASKS.IT.Quantum_vs_OCP)
+  ✔ обновить маппинг @done(24-12-06 13:58) @project(DAILY_TASKS.IT.Quantum_vs_OCP)
+  ✔ некорректный маппингd @done(24-12-06 13:58) @project(DAILY_TASKS.IT.Invest)
+  ✔ создать сводную по операциям @done(24-12-06 09:50) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ добавить название компании к данным @done(24-12-06 10:03) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ изменение объема @done(24-12-06 09:50) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ процент изменения @done(24-12-06 10:30) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ измененеие по статьям отсортированное по убыванию @done(24-12-06 10:03) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ объеденить все данные @done(24-12-06 10:55) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ спустить вниз asserts, current labilites и прочееd @done(24-12-06 13:35) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ обеспечить лучшую сходимость по строкам @done(24-12-06 13:35) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ По каждой компании нужно идти от общего уровня к более детальному, разделяя их друг от друга @done(24-12-11 09:50) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ 1)	сначала видеть изменение общей позиции, суммарной день ко дню @done(24-12-10 10:52) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ проверить вхождение строки в каждый файл @done(24-12-10 09:21) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ удалить пустые столбцы и строки @done(24-12-10 09:21) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ company @done(24-12-11 09:50) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ date @done(24-12-10 10:52) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ diff @done(24-12-10 10:52) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✘ форматирование 61 строка зеленая @cancelled(24-12-10 10:52) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ 2)	затем видеть изменение on-Balance и Off-Balance @done(24-12-10 10:01) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ 3)	затем видеть изменение итоговых балансовых статей: @done(24-12-10 10:01) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ 4)	затем видеть изменения внебалансовых статей (их немного) @done(24-12-10 10:01) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ 5)	затем видеть детальное изменение балансовых статей. @done(24-12-10 10:01) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ для каждой компании отдельно @done(24-12-10 13:37) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ каждый блок отдельно @done(24-12-10 13:37) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ проверить переменную дата в общем скрипте @done(24-12-10 13:37) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ data 4 seerts и labilites @done(24-12-10 13:37) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ печать каждой компании @done(24-12-11 09:45) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ деление на раннюю дату и вычитание из нее @done(24-12-11 09:45) @project(DAILY_TASKS.Brazil.Brazil monitoring)
   ✘ function finding info in another df @cancelled(24-12-04 08:30) @project(DAILY_TASKS.Routine)
   ✘ Денис DS @cancelled(24-12-04 08:30) @project(DAILY_TASKS.Routine)
   ✘ Оля разговор о команде @cancelled(24-12-04 08:30) @project(DAILY_TASKS.Routine)
