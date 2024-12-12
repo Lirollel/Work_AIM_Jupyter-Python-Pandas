@@ -22,13 +22,15 @@ Coding:
         ☐ проверять ключевые значения после использования сводной таблицы
 
 OCP:
+  @today 
     Sheets:
         ☐ ARAP
-        ☐ Cash
+        ✔ Cash @done(24-12-12 13:10)
             ☐ Percent
-        ☐ Deals
-        ☐ Debt
-        ☐ Invest
+        ✔ Deals @done(24-12-12 13:10)
+        ✔ Debt @done(24-12-12 13:10)
+        ✔ Invest @done(24-12-12 13:13)
+            ☐ mapping
         ☐ Quantum
     Compairing:
         ☐ Alert files
@@ -43,9 +45,27 @@ Reports:
     ☐ Limits @everyday
         ☐ TimokhinEV@aimmngt.com 
 
+
+
+Увольнение:
+    Анна, добрый день! 
+    Направляю приказ на увольнение и личную карточку работника на подпись.
+    Приказ – подпись и дата 13.12.2024, Т-2 – подписи на 2й, 3й, 5й стр. 
+    ✔ Прошу подписать, направить мне скан на проверку. @done(24-12-12 13:07)
+    ☐ Завтра отправим к вам курьера. Прошу передать ему 
+        ☐ подписанный приказ, 
+        ☐ личную карточку, 
+        ☐ заявление об увольнении и д
+        ☐ оп. соглашение с приказом о переводе.
+    
+    ☐ Завтра направлю сканы справой СТД-Р, ЕФС-1 и 2НДФЛ. 
+    ✔ Оригиналы, почтой России на адрес регистрации, либо какой укажите. @done(24-12-12 13:08)
+    ✔ По обходному листу, жду согласования в почте. @done(24-12-12 13:08)
+    
+
+
 DAILY_TASKS:
 
-    
     IT:
         Справочник:
             ☐ свой CCY_tech_dict обновить по справочнику
@@ -78,23 +98,12 @@ DAILY_TASKS:
             Нужно настроить их мониторинг – разбор основных статей, и как они меняются со временем. Цель – на каждую новую дату понимать за счёт чего изменилась позиция относительно предыдущего дня.
             Основные статьи находятся вот здесь, на закладке FX Exposure Balance Sheet
                 ☐ форматирование      
-                ✔ соответсвие значений датам @done(24-12-11 10:16)
                 ☐ првоерить даты еще раз
 
                 Maxim:
-                    ☐ Net Exposure Balance BRL up
-                    ☐ tables naming
-                    ☐ cols naming
-                    ☐ data_3 by cols
-                    ☐ data_4 Non monetary nominated не идёт в расчёт
-                    ☐ data_4 Liabilities and equity	Industrialization	<-эту строчку не надо
-                    ☐ data_4 Assets	Total Off Balance Assets	<-переезжает в предыдущий блок
-                    ☐ data_4 Liabilities and equity	Total Off Balances Liabilities	<-переезжает в предыдущий блок
-                    ☐ data_5 drop 1 col
-                    ☐ data_5 add Exposure currency type col Сюда раскладываем BRL denominated, USD denominated и т.д.
                     ☐ add empty col 1 for all table
+                    ☐ data_1 разложить аналогично 3-5
                     
-
         Cash:
             ☐ убедиться, что присланный расчет соответсвует методике - нашим ожиданиям что включается, а что нет
             Разметка баланса: 
@@ -156,6 +165,17 @@ DAILY_TASKS:
                     у BRFTO есть выданный займ на другие бразильские компании (где-то среди AR)
                     в quantum есть бразильские компании
 Archive:
+  ✔ соответсвие значений датам @done(24-12-11 10:16) @project(DAILY_TASKS.Brazil.Brazil monitoring)
+  ✔ Net Exposure Balance BRL up @done(24-12-11 13:49) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ tables naming @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ cols naming @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_3 by cols @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_4 Non monetary nominated не идёт в расчёт @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_4 Liabilities and equity	Industrialization	<-эту строчку не надо @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_4 Assets	Total Off Balance Assets	<-переезжает в предыдущий блок @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_4 Liabilities and equity	Total Off Balances Liabilities	<-переезжает в предыдущий блок @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_5 drop 1 col @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
+  ✔ data_5 add Exposure currency type col Сюда раскладываем BRL denominated, USD denominated и т.д. @done(24-12-11 14:50) @project(DAILY_TASKS.Brazil.Brazil monitoring.Maxim)
   ✔ Описать алгоритм (вход, процесс, выход) отдельно по частям @today @done(24-12-10 08:47) @project(DAILY_TASKS.RAAC.Методология)
   ✔ посмотреть примеры ТЗ @done(24-12-10 08:47) @project(DAILY_TASKS.RAAC.Методология)
   ✔ определить части @done(24-12-10 08:47) @project(DAILY_TASKS.RAAC.Методология)
