@@ -22,22 +22,21 @@ Coding:
         ☐ проверять ключевые значения после использования сводной таблицы
 
 OCP:
-  @today 
     Sheets:
-        ☐ ARAP
+        ✔ ARAP @done(24-12-12 15:29)
         ✔ Cash @done(24-12-12 13:10)
-            ☐ Percent
+            ✔ Percent @done(24-12-12 15:29)
         ✔ Deals @done(24-12-12 13:10)
         ✔ Debt @done(24-12-12 13:10)
         ✔ Invest @done(24-12-12 13:13)
             ☐ mapping
-        ☐ Quantum
+        ✔ Quantum @done(24-12-12 15:29)
     Compairing:
-        ☐ Alert files
-            ☐ manual check
-            ☐ cash
+        ✔ Alert files @done(24-12-12 15:29)
+            ✔ manual check @done(24-12-12 15:29)
+            ✔ cash @done(24-12-12 15:29)
                 ну первое что я бы хай левел проверил - по ежедневному отчёту operational liquidity на конец сентября и на конец октября
-            ☐ ARAP manual
+            ✔ ARAP manual @done(24-12-12 15:29)
 
 Reports:
     ☐ Liquidity @everyday
@@ -102,7 +101,7 @@ DAILY_TASKS:
 
                 Maxim:
                     ☐ add empty col 1 for all table
-                    ☐ data_1 разложить аналогично 3-5
+                    ✔ data_1 разложить аналогично 3-5 @done(24-12-12 15:30)
                     
         Cash:
             ☐ убедиться, что присланный расчет соответсвует методике - нашим ожиданиям что включается, а что нет
